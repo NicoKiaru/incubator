@@ -47,6 +47,7 @@
 	<modules>
 		<module>imagej/imagej-ops2</module>
 		<module>imagej/imagej-test-util</module>
+		<module>scijava/bigint</module>
 		<module>scijava/scijava-ops</module>
 		<module>scijava/scijava-test-util</module>
 		<module>scijava/scijava-types</module>
