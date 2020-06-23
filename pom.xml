@@ -46,6 +46,7 @@
 
 	<modules>
 		<module>imagej/imagej-ops2</module>
+		<module>imagej/imagej-ops-demo</module>
 		<module>imagej/imagej-test-util</module>
 		<module>scijava/scijava-ops</module>
 		<module>scijava/scijava-test-util</module>
