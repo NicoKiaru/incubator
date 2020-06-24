@@ -40,7 +40,7 @@ import org.scijava.types.TypeService;
  * @author Gabriel Selzer
  * @see OpDependency
  */
-public class DeclareOpWithDependencies {
+public class WriteOpWithDependencies {
 
 	/**
 	 * Uses a {@link Context} to obtain an {@OpEnvironment}.

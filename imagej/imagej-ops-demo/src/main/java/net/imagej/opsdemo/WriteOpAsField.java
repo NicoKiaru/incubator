@@ -24,13 +24,13 @@ import org.scijava.types.TypeService;
  * an {@link OpCollection}.
  *
  * @author Gabriel Selzer
- * @see DeclareOpAsField#demoOpField
+ * @see WriteOpAsField#demoOpField
  * @see Computers
  * @see Functions
  * @see Inplaces
  */
 @Plugin(type = OpCollection.class)
-public class DeclareOpAsField {
+public class WriteOpAsField {
 
 	/**
 	 * Uses a {@link Context} to obtain an {@OpEnvironment}.

@@ -22,7 +22,7 @@ import org.scijava.types.TypeService;
  * @see Functions
  * @see Inplaces
  */
-public class DeclareOpAsPlugin {
+public class WriteOpAsPlugin {
 
 	/**
 	 * Uses a {@link Context} to obtain an {@OpEnvironment}.
