@@ -9,6 +9,9 @@ import org.scijava.ops.OpField;
 import org.scijava.ops.OpService;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.core.OpCollection;
+import org.scijava.ops.function.Computers;
+import org.scijava.ops.function.Functions;
+import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Producer;
 import org.scijava.plugin.Plugin;
 import org.scijava.plugin.PluginService;
@@ -22,6 +25,9 @@ import org.scijava.types.TypeService;
  *
  * @author Gabriel Selzer
  * @see DeclareOpAsField#demoOpField
+ * @see Computers
+ * @see Functions
+ * @see Inplaces
  */
 @Plugin(type = OpCollection.class)
 public class DeclareOpAsField {

@@ -5,6 +5,9 @@ import org.scijava.Context;
 import org.scijava.ops.OpEnvironment;
 import org.scijava.ops.OpService;
 import org.scijava.ops.core.Op;
+import org.scijava.ops.function.Computers;
+import org.scijava.ops.function.Functions;
+import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Producer;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
@@ -15,7 +18,9 @@ import org.scijava.types.TypeService;
  * How to declare an {@link Op} as a Scijava {@link Plugin}
  *
  * @author Gabriel Selzer
- * @see DemoOpPlugin
+ * @see Computers
+ * @see Functions
+ * @see Inplaces
  */
 public class DeclareOpAsPlugin {
 
