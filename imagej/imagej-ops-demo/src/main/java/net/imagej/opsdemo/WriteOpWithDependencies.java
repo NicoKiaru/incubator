@@ -27,8 +27,8 @@ import org.scijava.types.TypeService;
  * <ul>
  * <li>The {@code @OpDependency} annotation. This annotation allows the matcher
  * to discover the dependency.
- * <li>The {@code name} attribute of the annotation. This gives the matcher
- * against which to find a matching Op.
+ * <li>The {@code name} attribute of the annotation. This is necessary for
+ * matching.
  * <li>The {@code type} of the {@link Field}. This tells the matcher the type an
  * Op must be able to satisfy for it to be injected.
  * </ul>
@@ -39,6 +39,8 @@ import org.scijava.types.TypeService;
  *
  * @author Gabriel Selzer
  * @see OpDependency
+ * @see DemoDependentOp
+ * @see DemoDependency
  */
 public class WriteOpWithDependencies {
 
@@ -56,20 +58,21 @@ public class WriteOpWithDependencies {
 	}
 
 	static void run(OpEnvironment opEnv) {
-		// Build the Op
+		// -- Build the Op -- //
 		Producer<String> demoOp = opEnv.op("demo.dependentOp") //
 			.input() // Producers have no inputs
 			.outType(String.class) // Our op needs to return a String
-			.producer();
+			.producer(); // We want a Producer back.
 
-		// Run the Op -> Print the String
+		// -- Run the Op -- //
+		String output = demoOp.create();
+
+		// -- Print results -- //
 		System.out.println(demoOp.create());
 	}
 
 	public static void main(String... args) {
 		OpEnvironment opEnv = getOpEnvironment();
-
-		System.out.println("// -- Obtain declared Op from the OpEnvironment -- //");
 		run(opEnv);
 	}
 
@@ -94,7 +97,7 @@ public class WriteOpWithDependencies {
 @Parameter(key = "output")
 class DemoDependentOp implements Producer<String> {
 
-	@OpDependency(name = "demo.neededOp")
+	@OpDependency(name = "demo.dependency")
 	public Producer<String> neededOp;
 
 	@Override
@@ -111,9 +114,9 @@ class DemoDependentOp implements Producer<String> {
  * @author Gabriel Selzer
  * @see Producer
  */
-@Plugin(type = Op.class, name = "demo.neededOp")
+@Plugin(type = Op.class, name = "demo.dependency")
 @Parameter(key = "output")
-class DemoNeededOp implements Producer<String> {
+class DemoDependency implements Producer<String> {
 
 	@Override
 	public String create() {

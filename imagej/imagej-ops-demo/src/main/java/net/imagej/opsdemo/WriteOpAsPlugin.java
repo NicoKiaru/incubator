@@ -16,6 +16,20 @@ import org.scijava.types.TypeService;
 
 /**
  * How to declare an {@link Op} as a Scijava {@link Plugin}
+ * <p>
+ * Requirements of any Op written as a {@code Plugin} include:
+ * <ul>
+ * <li>The {@code @Plugin} annotation. This annotation allows the matcher to
+ * discover the {@code Op}.
+ * <li>The {@code name} attribute of the annotation. This is necessary for
+ * matching.
+ * <li><strong>One</strong> {@link FunctionalInterface} must be implemented.
+ * This gives the matcher the generic type of the {@code Op}, which is necessary
+ * for matching.
+ * </ul>
+ * <p>
+ * Note that {@code Op}s written as {@code Plugin}s <b>must</b> be
+ * {@link Class}es
  *
  * @author Gabriel Selzer
  * @see Computers
@@ -38,20 +52,21 @@ public class WriteOpAsPlugin {
 	}
 
 	static void run(OpEnvironment opEnv) {
-		// Build the Op
+		// -- Build the Op -- //
 		Producer<String> demoOp = opEnv.op("demo.opPlugin") //
 			.input() // Producers have no inputs
 			.outType(String.class) // Our op needs to return a String
-			.producer();
+			.producer(); // We want a Producer back
 
-		// Run the Op -> Print the String
-		System.out.println(demoOp.create());
+		// -- Run the Op -- //
+		String output = demoOp.create();
+		
+		// -- Print results -- //
+		System.out.println(output);
 	}
 
 	public static void main(String... args) {
 		OpEnvironment opEnv = getOpEnvironment();
-
-		System.out.println("// -- Obtain declared Op from the OpEnvironment -- //");
 		run(opEnv);
 	}
 

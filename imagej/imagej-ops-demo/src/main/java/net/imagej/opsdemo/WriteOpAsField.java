@@ -2,6 +2,7 @@
 package net.imagej.opsdemo;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 
 import org.scijava.Context;
 import org.scijava.ops.OpEnvironment;
@@ -19,6 +20,17 @@ import org.scijava.types.TypeService;
 
 /**
  * How to declare an {@link Op} as an {@link OpField}
+ * <p>
+ * Requirements of any Op written as a {@code OpField} include:
+ * <ul>
+ * <li>The {@code @OpField} annotation. This annotation allows the matcher to
+ * discover the {@code Op}.
+ * <li>The {@code name} attribute of the annotation. This is necessary for
+ * matching.
+ * <li>The {@link Type} of the {@code Field} must be a
+ * {@code FunctionalInterface}. This gives the matcher the generic type of the
+ * {@code Op}, which is necessary for matching.
+ * </ul>
  * <p>
  * Note that the {@link Class} owning the {@link Field} must declare itself as
  * an {@link OpCollection}.
@@ -46,20 +58,21 @@ public class WriteOpAsField {
 	}
 
 	static void run(OpEnvironment opEnv) {
-		// Build the Op
+		// -- Build the Op -- //
 		Producer<String> demoOp = opEnv.op("demo.opField") //
 			.input() // Producers have no inputs
 			.outType(String.class) // Our op needs to return a String
-			.producer();
+			.producer(); // We want a Producer back
 
-		// Run the Op -> Print the String
-		System.out.println(demoOp.create());
+		// -- Run the Op -- //
+		String output = demoOp.create();
+		
+		// -- Print results -- //
+		System.out.println(output);
 	}
 
 	public static void main(String... args) {
 		OpEnvironment opEnv = getOpEnvironment();
-
-		System.out.println("// -- Obtain declared Op from the OpEnvironment -- //");
 		run(opEnv);
 	}
 
