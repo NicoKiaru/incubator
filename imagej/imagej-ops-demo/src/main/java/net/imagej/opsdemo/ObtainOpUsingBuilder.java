@@ -13,9 +13,12 @@ import org.scijava.plugin.PluginService;
 import org.scijava.types.TypeService;
 
 /**
- * How to obtain an {@link Op} using an {@link OpBuilder}
+ * How to obtain an {@link Op} using an {@link OpBuilder}. If you are only going
+ * to use the {@code Op} once, it is cleaner to use the {@code OpBuilder} to get
+ * the answer directly.
  *
  * @author Gabriel Selzer
+ * @see RunOpUsingBuilder
  */
 public class ObtainOpUsingBuilder {
 
