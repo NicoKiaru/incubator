@@ -13,9 +13,9 @@ import org.scijava.plugin.PluginService;
 import org.scijava.types.TypeService;
 
 /**
- * How to obtain an {@link Op} using an {@link OpBuilder}. If you are only going
- * to use the {@code Op} once, it is cleaner to use the {@code OpBuilder} to get
- * the answer directly.
+ * How to obtain an {@link Op} using an {@link OpBuilder}. <strong>If you are
+ * only going to use the {@code Op} once, it is cleaner to use the
+ * {@code OpBuilder} to get the answer directly.</strong>
  *
  * @author Gabriel Selzer
  * @see RunOpUsingBuilder
@@ -41,14 +41,18 @@ public class ObtainOpUsingBuilder {
 	 */
 	public static void buildOpUsingClasses(OpEnvironment opEnv) {
 
-		// Build an Op
-		BiFunction<Double, Double, Double> adder = opEnv.op("math.add") // provide the name of the desired Op
-				.inType(Double.class, Double.class) // declare that the input should be a Double
-				.outType(Double.class) // declare that the output should be a Double
-				.function(); // ask for a Function (NOTE: not always a java.util.function.Function, but always returns a new Object)
+		// -- Obtain the Op -- //
+		BiFunction<Double, Double, Double> adder = opEnv //
+				.op("math.add") // We want an Op named "math.add"
+				.inType(Double.class, Double.class) // inputs should be Doubles
+				.outType(Double.class) // output should be a Double
+				.function(); // We want some Function back
 
-		// Run the Op
+		// -- Run the Op -- //
 		Double result = adder.apply(5.0, 2.0);
+		
+		// -- Print results -- //
+		System.out.println("This Op was described using Classes");
 		System.out.println("5 + 2 = " + result);
 	}
 

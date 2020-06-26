@@ -1,19 +1,17 @@
 
 package net.imagej.opsdemo;
 
-import net.imagej.ops2.types.adapt.LiftComputersToRAI;
-import net.imglib2.Cursor;
-import net.imglib2.RandomAccessibleInterval;
-import net.imglib2.img.Img;
-import net.imglib2.img.array.ArrayImgs;
-import net.imglib2.type.numeric.RealType;
-import net.imglib2.type.numeric.integer.UnsignedByteType;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.function.Function;
 
 import org.scijava.Context;
 import org.scijava.ops.OpEnvironment;
 import org.scijava.ops.OpField;
 import org.scijava.ops.OpService;
 import org.scijava.ops.adapt.functional.ComputersToFunctionsViaSource;
+import org.scijava.ops.adapt.lift.FunctionToIterables;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.core.OpCollection;
 import org.scijava.ops.function.Computers;
@@ -36,10 +34,7 @@ import org.scijava.util.MersenneTwisterFast;
  * its declared Type.
  * <p>
  * Note that this performance cost is not standard; some adaptations can be
- * performed in a way that boosts performance. Suppose you have a
- * {@code Computer} that operates on {@link RealType}s, and you wish to call
- * this Op on an {@link Img}. Using {@link LiftComputersToRAI}, we can apply
- * this Op across all pixels of the {@code Img} in an efficient manner.
+ * performed in a way that maintains or even boosts performance.
  *
  * @author Gabriel Selzer
  */
@@ -60,64 +55,63 @@ public class AdaptOpAutomagically {
 	}
 
 	/**
-	 * Generates an {@link Img} with dimensions defined by {@code size}.
+	 * Generates a {@link List} for testing purposes
 	 * 
-	 * @param size - The dimensions of the returned {@code Img}
-	 * @return an {@code Img}
+	 * @return a {@code List}
 	 */
-	public static Img<UnsignedByteType> generateDemoImage(long... size) {
-		// Fill a test image with integers in the range [0, 64)
-		Img<UnsignedByteType> img = ArrayImgs.unsignedBytes(size);
+	public static List<Integer> generateDemoList() {
+		// Fill a test list with ints in range [0, 10)
+		List<Integer> list = new ArrayList<>();
 		MersenneTwisterFast betterRNG = new MersenneTwisterFast(0xf1eece);
-		for (UnsignedByteType b : img) {
-			b.set(betterRNG.nextInt(256 / 4));
-		}
-		return img;
+		for (int i = 0; i < 5; i++)
+			list.add(betterRNG.nextInt(10));
+		return list;
 	}
 
+	/**
+	 * Note that this Op call makes use of {@link FunctionToIterables} to allow
+	 * this Op to be called across every element of the List. This does force us
+	 * to request an {@code Iterable<Integer>} as output, however.
+	 * 
+	 * @param opEnv - the OpEnvironment
+	 * @see FunctionToIterables
+	 */
 	public static void run(OpEnvironment opEnv) {
-		Img<UnsignedByteType> input = generateDemoImage(2, 2);
+		// -- Construct input -- //
+		List<Integer> input = generateDemoList();
 
-		// Create an output image to pass to the Op
-		Img<UnsignedByteType> output = opEnv.op("create.img") //
-			.input(input) //
-			.outType(new Nil<Img<UnsignedByteType>>()
-			{}) //
-			.apply();
+		// -- Construct the Nils -- //
+		Nil<Iterable<Integer>> outputType = new Nil<>() {};
 
-		// Build the Op
-		opEnv.op("demo.strangePixelOp") // Ask for an Op with the given name
-			.input(input) // Provide the input image
-			.output(output) // Provide the output image
-			.compute(); // Compute directly (i.e. do not give us a Computer)
+		// -- Build the Op, run Immediately -- //
+		Iterable<Integer> output = opEnv //
+			.op("demo.strangeIntegerOp") // Ask for Op with the given name
+			.input(input) // Provide the input list
+			.outType(outputType) // We want an Iterable of Integer back
+			.apply(); // Compute directly (i.e. do not give us a Function)
 
-		// Show output of Op
-		Cursor<UnsignedByteType> inputCursor = input.cursor();
-		Cursor<UnsignedByteType> outputCursor = output.cursor();
-		while (inputCursor.hasNext()) {
-			System.out.println(inputCursor.next().get() + " x 4 = " + outputCursor
-				.next().get());
+		// -- Print results -- //
+		Iterator<Integer> inputItr = input.iterator();
+		Iterator<Integer> outputItr = output.iterator();
+		while (inputItr.hasNext()) {
+			System.out.println(inputItr.next() + " x 4 = " + outputItr.next());
 		}
+
 	}
 
 	public static void main(String... args) {
 		OpEnvironment opEnv = getOpEnvironment();
-
-		System.out.println("// -- Obtain adapted Op from the OpEnvironment -- //");
 		run(opEnv);
 	}
 
 	/**
 	 * A strange Op
 	 * <p>
-	 * Note that the Op operates on {@link RealType}s, not on
-	 * {@link RandomAccessibleInterval}s.
+	 * Note that the Op operates on {@link Integer}s, not on {@link Iterable}s.
 	 * 
 	 * @author Gabriel Selzer
-	 * @see LiftComputersToRAI#lift1
 	 */
-	@OpField(names = "demo.strangePixelOp")
-	public final Computers.Arity1<UnsignedByteType, UnsignedByteType> demoOpField =
-		(in, out) -> out.set(in.get() * 4);
+	@OpField(names = "demo.strangeIntegerOp")
+	public final Function<Integer, Integer> demoOpField = (in) -> in * 4;
 
 }
