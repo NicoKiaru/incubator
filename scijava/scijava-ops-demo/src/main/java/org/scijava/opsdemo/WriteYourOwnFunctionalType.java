@@ -121,17 +121,17 @@ public class WriteYourOwnFunctionalType {
  * of the things that we can do with this!
  * 
  * @author Gabriel Selzer
- * @param <IO1> - the preallocated output of the Op
+ * @param <O> - the preallocated output of the Op
  * @param <I2> - the second parameter of the Op
  * @param <I3> - the third mutable parameter of the Op
  */
 @FunctionalInterface
-interface StrangeComputer<IO1, I2, I3> extends Consumers.Arity3<IO1, I2, I3> {
+interface StrangeComputer<O, I2, I3> extends Consumers.Arity3<O, I2, I3> {
 
-	void compute(@Mutable IO1 in1, I2 in2, I3 in3);
+	void compute(@Mutable O in1, I2 in2, I3 in3);
 
 	@Override
-	default void accept(final IO1 in1, final I2 in2, final I3 in3) {
+	default void accept(final O in1, final I2 in2, final I3 in3) {
 		compute(in1, in2, in3);
 	}
 }
