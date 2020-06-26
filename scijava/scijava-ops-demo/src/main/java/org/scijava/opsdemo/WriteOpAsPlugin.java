@@ -1,5 +1,5 @@
 
-package net.imagej.opsdemo;
+package org.scijava.opsdemo;
 
 import org.scijava.Context;
 import org.scijava.ops.OpEnvironment;

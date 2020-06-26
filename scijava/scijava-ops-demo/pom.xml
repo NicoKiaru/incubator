@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -9,16 +11,16 @@
 		<relativePath>../..</relativePath>
 	</parent>
 
-	<groupId>net.imagej</groupId>
-	<artifactId>imagej-ops-demo</artifactId>
+	<groupId>org.scijava</groupId>
+	<artifactId>scijava-ops-demo</artifactId>
 
-	<name>ImageJ Ops Demo</name>
-	<description>Ops Demo: a showcase of the features of scijava-ops and imagej-ops2</description>
+	<name>Scijava Ops Demo</name>
+	<description>Ops Demo: a showcase of the features of scijava-ops</description>
 	<url>None</url>
 	<inceptionYear>2020</inceptionYear>
 	<organization>
-		<name>ImageJ</name>
-		<url>http://imagej.net/</url>
+		<name>Scijava</name>
+		<url>http://scijava.org/</url>
 	</organization>
 	<licenses>
 		<license>
@@ -86,7 +88,7 @@
 	</scm>
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/imagej/imagej-ops-demo/issues</url>
+		<url>https://github.com/scijava/scijava-ops-demo/issues</url>
 	</issueManagement>
 	<ciManagement>
 		<system>Travis CI</system>
@@ -94,21 +96,12 @@
 	</ciManagement>
 
 	<properties>
-		<package-name>net.imagej.ops.demo</package-name>
-		<main-class>net.imagej.ops.demo.Main</main-class>
+		<package-name>org.scijava.opsdemo</package-name>
+		<main-class>org.scijava.opsdemo.Main</main-class>
+
 		<license.licenseName>bsd_2</license.licenseName>
-		<license.copyrightOwners>ImageJ developers.</license.copyrightOwners>
-
-		<!-- NB: Deploy releases to the ImageJ Maven repository. -->
-		<releaseProfiles>deploy-to-imagej</releaseProfiles>
+		<license.copyrightOwners>Scijava developers.</license.copyrightOwners>
 	</properties>
-
-	<repositories>
-		<repository>
-			<id>scijava.public</id>
-			<url>https://maven.scijava.org/content/groups/public</url>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<!-- SciJava dependencies -->
@@ -125,11 +118,6 @@
 			<groupId>org.scijava</groupId>
 			<artifactId>scijava-types</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<!-- Do not remove - Maven incorrectly identifies it as an unused dependency!  -->
-			<groupId>org.scijava</groupId>
-			<artifactId>scripting-javascript</artifactId>
 		</dependency>
 		<!-- Third party dependencies -->
 	</dependencies>

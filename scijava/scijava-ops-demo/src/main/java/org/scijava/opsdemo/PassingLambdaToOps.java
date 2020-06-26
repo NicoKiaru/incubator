@@ -1,5 +1,5 @@
 
-package net.imagej.opsdemo;
+package org.scijava.opsdemo;
 
 import java.util.function.Function;
 

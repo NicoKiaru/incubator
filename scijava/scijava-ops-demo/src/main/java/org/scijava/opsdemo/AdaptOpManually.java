@@ -1,5 +1,5 @@
 
-package net.imagej.opsdemo;
+package org.scijava.opsdemo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,7 +11,6 @@ import org.scijava.ops.OpEnvironment;
 import org.scijava.ops.OpField;
 import org.scijava.ops.OpService;
 import org.scijava.ops.adapt.functional.ComputersToFunctionsViaSource;
-import org.scijava.ops.adapt.lift.FunctionToIterables;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.core.OpCollection;
 import org.scijava.ops.function.Computers;
@@ -22,7 +21,7 @@ import org.scijava.types.TypeService;
 import org.scijava.util.MersenneTwisterFast;
 
 /**
- * How to adapt an {@link Op} automagically using an {@code adapt} Op.
+ * How to adapt an {@link Op} manually using an {@code adapt} Op.
  * <p>
  * Note that adapting Ops often comes at a performance cost. Consider the
  * adaptation of a {@link Computers.Arity1} to a {@code Function} (using
@@ -34,12 +33,17 @@ import org.scijava.util.MersenneTwisterFast;
  * its declared Type.
  * <p>
  * Note that this performance cost is not standard; some adaptations can be
- * performed in a way that maintains or even boosts performance.
+ * performed in a way that boosts performance.
+ * <p>
+ * <b>While this behavior is showcased for completeness, we do not suggest that
+ * it should be used. In most cases, it is better to allow the matcher to
+ * automagically adapt the Op. This avoids the wall of text shown below. </b>
  *
  * @author Gabriel Selzer
+ * @see AdaptOpAutomagically
  */
 @Plugin(type = OpCollection.class)
-public class AdaptOpAutomagically {
+public class AdaptOpManually {
 
 	/**
 	 * Uses a {@link Context} to obtain an {@OpEnvironment}.
@@ -68,35 +72,43 @@ public class AdaptOpAutomagically {
 		return list;
 	}
 
-	/**
-	 * Note that this Op call makes use of {@link FunctionToIterables} to allow
-	 * this Op to be called across every element of the List. This does force us
-	 * to request an {@code Iterable<Integer>} as output, however.
-	 * 
-	 * @param opEnv - the OpEnvironment
-	 * @see FunctionToIterables
-	 */
 	public static void run(OpEnvironment opEnv) {
-		// -- Construct input -- //
+		// -- Create input -- //
 		List<Integer> input = generateDemoList();
 
-		// -- Construct the Nils -- //
-		Nil<Iterable<Integer>> outputType = new Nil<>() {};
+		// -- Build element-wise Op -- //
+		Function<Integer, Integer> intComputer = opEnv //
+			.op("demo.uselessIntegerOp") // Ask for an Op with this name
+			.inType(Integer.class) // Provide the input image
+			.outType(Integer.class) // Provide the output image
+			.function(); // Give us back a Function
 
-		// -- Build the Op, run Immediately -- //
-		Iterable<Integer> output = opEnv //
-			.op("demo.strangeIntegerOp") // Ask for Op with the given name
-			.input(input) // Provide the input list
-			.outType(outputType) // We want an Iterable of Integer back
-			.apply(); // Compute directly (i.e. do not give us a Function)
+		// -- Construct the Nils -- //
+		Nil<Function<Integer, Integer>> inType = new Nil<>() {};
+		Nil<Function<Iterable<Integer>, Iterable<Integer>>> outType =
+			new Nil<>()
+			{};
+
+		// -- Build adaptor -- //
+		Function<Function<Integer, Integer>, Function<Iterable<Integer>, Iterable<Integer>>> adaptor =
+			opEnv.op("adapt") // Ask for an Op with the given name
+				.inType(inType) // Declare the input type of the Op
+				.outType(outType) // Declare the output type of the Op
+				.function(); // Compute directly (i.e. do not give us a Computer)
+
+		// -- Adapt Op -- //
+		Function<Iterable<Integer>, Iterable<Integer>> iterableComputer = adaptor
+			.apply(intComputer);
+
+		// -- Run Op -- //
+		Iterable<Integer> output = iterableComputer.apply(input);
 
 		// -- Print results -- //
 		Iterator<Integer> inputItr = input.iterator();
 		Iterator<Integer> outputItr = output.iterator();
 		while (inputItr.hasNext()) {
-			System.out.println(inputItr.next() + " x 4 = " + outputItr.next());
+			System.out.println(inputItr.next() + " x 5 = " + outputItr.next());
 		}
-
 	}
 
 	public static void main(String... args) {
@@ -105,13 +117,13 @@ public class AdaptOpAutomagically {
 	}
 
 	/**
-	 * A strange Op
+	 * A useless Op
 	 * <p>
 	 * Note that the Op operates on {@link Integer}s, not on {@link Iterable}s.
 	 * 
 	 * @author Gabriel Selzer
 	 */
-	@OpField(names = "demo.strangeIntegerOp")
-	public final Function<Integer, Integer> demoOpField = (in) -> in * 4;
+	@OpField(names = "demo.uselessIntegerOp")
+	public final Function<Integer, Integer> demoOpField = (in) -> in * 5;
 
 }
