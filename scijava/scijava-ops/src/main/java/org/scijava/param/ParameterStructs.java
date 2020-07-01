@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 
 import org.scijava.ops.FieldOpDependencyMember;
 import org.scijava.ops.MethodParameterOpDependencyMember;
+import org.scijava.ops.OpClass;
 import org.scijava.ops.OpDependency;
 import org.scijava.ops.OpDependencyMember;
 import org.scijava.ops.OpInfo;
@@ -70,6 +71,7 @@ public final class ParameterStructs {
 	public static Struct structOf(final Class<?> type)
 		throws ValidityException
 	{
+		
 		final List<Member<?>> items = parse(type);
 		return () -> items;
 	}
@@ -129,6 +131,13 @@ public final class ParameterStructs {
 
 		// NB: Reject abstract classes.
 		checkModifiers(type.getName() + ": ", problems, type.getModifiers(), true, Modifier.ABSTRACT);
+		
+		// Reject classes without @OpClass annotations
+		try {
+			type.getAnnotation(OpClass.class);
+		} catch (NullPointerException e) {
+			problems.add(new ValidityProblem(type.getName() + ": Must declare @OpClass annotation."));
+		}
 
 		// Parse class level (i.e., generic) @Parameter annotations.
 		final Class<?> paramsClass = findParametersDeclaration(type);
@@ -400,9 +409,10 @@ public final class ParameterStructs {
 	 * explicitly specified by a user and should thus be inferred from the functional method type.
 	 * 
 	 * @param fmts
+	 * @param problems 
 	 * @return
 	 */
-	private static Parameter[] synthesizeParameterAnnotations(final List<FunctionalMethodType> fmts) {
+	private static Parameter[] synthesizeParameterAnnotations(final List<FunctionalMethodType> fmts, final Set<String> names) {
 		List<Parameter> params = new ArrayList<>();
 		
 		int ins, outs, insOuts;
@@ -422,7 +432,7 @@ public final class ParameterStructs {
 				ins++;
 				break;
 			case OUTPUT:
-				key = "output" + outs;
+				key = "output";
 				outs++;
 				break;
 			default:
@@ -481,7 +491,7 @@ public final class ParameterStructs {
 //	}
 	
 	private static void parseFunctionalParameters(final ArrayList<Member<?>> items, final Set<String> names, final ArrayList<ValidityProblem> problems,
-			AnnotatedElement annotationBearer, Type type, final boolean synthesizeAnnotations) {
+			AnnotatedElement annotationBearer, Type type) {
 		//Search for the functional method of 'type' and map its signature to ItemIO
 		List<FunctionalMethodType> fmts = findFunctionalMethodTypes(type);
 		if (fmts == null) {
@@ -492,7 +502,7 @@ public final class ParameterStructs {
 		// Get parameter annotations (may not be present)
 		// TODO: remove Parameter annotations from all ops and remove logic below.
 		// TODO: grab names from OpClass/OpField annotations.
-		Parameter[] annotations = synthesizeParameterAnnotations(fmts);
+		Parameter[] annotations = synthesizeParameterAnnotations(fmts, names);
 //		// 'type' is annotated, resolve ItemIO.AUTO by matching it to the signature of the functional method
 //		if (annotations.length > 0 && !synthesizeAnnotations) {
 //			if (annotations.length != fmts.size()) {
@@ -599,6 +609,25 @@ public final class ParameterStructs {
 		}
 		return null;
 	}
+	
+	/**
+	 * Finds the class declaring the {@code @OpClass} annotations. It might be on
+	 * this type, on a supertype, or an implemented interface.
+	 */
+	private static Class<?> findOpClassAnnotation(final Class<?> type) {
+		if (type == null) return null;
+		final Deque<Class<?>> types = new ArrayDeque<>();
+		types.add(type);
+		while (!types.isEmpty()) {
+			final Class<?> candidate = types.pop();
+			if (candidate.getAnnotation(Parameters.class) != null || 
+					candidate.getAnnotation(Parameter.class) != null) return candidate;
+			final Class<?> superType = candidate.getSuperclass() ;
+			if (superType != null) types.add(superType);
+			types.addAll(Arrays.asList(candidate.getInterfaces()));
+		}
+		return null;
+	}
 
 	/**
 	 * Searches for a {@code @FunctionalInterface} annotated interface in the 
@@ -618,6 +647,7 @@ public final class ParameterStructs {
 		return findFunctionalInterface(type.getSuperclass());
 	}
 
+	// TODO: how much of this can be deleted?
 	private static boolean checkValidity(Parameter param, String name,
 		Class<?> type, boolean isFinal, Set<String> names,
 		ArrayList<ValidityProblem> problems)

@@ -55,6 +55,7 @@ import org.scijava.Context;
 import org.scijava.InstantiableException;
 import org.scijava.Priority;
 import org.scijava.log.LogService;
+import org.scijava.ops.OpClass;
 import org.scijava.ops.OpDependency;
 import org.scijava.ops.OpDependencyMember;
 import org.scijava.ops.OpEnvironment;
