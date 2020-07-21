@@ -20,7 +20,8 @@ module org.scijava.ops {
 
   // FIXME: This is a file name and is thus unstable
   requires geantyref;
-  
+	requires therapi.runtime.javadoc;
+
   requires java.desktop;
 
 	requires org.scijava;
