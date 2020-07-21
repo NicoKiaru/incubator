@@ -2,23 +2,23 @@ package org.scijava.ops.math;
 
 import java.util.Arrays;
 
+import org.scijava.ops.OpClass;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Functions;
-import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 public class Normalize {
 
 	public static final String NAMES = "math.minmax";
 
-	@Plugin(type = Op.class, name = NAMES)
-	@Parameter(key = "numbers")
-	@Parameter(key = "newMin")
-	@Parameter(key = "newMax")
-	@Parameter(key = "normalized", itemIO = ItemIO.OUTPUT)
+	@Plugin(type = Op.class)
+	@OpClass(names = NAMES, params = "numbers, newMin, newMax, normalized")
 	public static class MathMinMaxNormalizeFunction implements Functions.Arity3<double[], Double, Double, double[]> {
 
+		/**
+		 * @param t - the input array
+		 * 
+		 */
 		@Override
 		public double[] apply(double[] t, Double newMin, Double newMax) {
 			if (newMax == null) {

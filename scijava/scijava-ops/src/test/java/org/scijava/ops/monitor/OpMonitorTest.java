@@ -11,6 +11,7 @@ import java.util.function.Function;
 import org.junit.Assert;
 import org.junit.Test;
 import org.scijava.ops.AbstractTestEnvironment;
+import org.scijava.ops.OpClass;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Functions;
 import org.scijava.param.Parameter;
@@ -84,9 +85,7 @@ public class OpMonitorTest extends AbstractTestEnvironment {
 
 }
 
-@Plugin(type = Op.class, name = "test.opMonitor")
-@Parameter(key = "monitor")
-@Parameter(key = "bigInteger", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "test.opMonitor", params = "monitor, bigInteger")
 class InfiniteOp implements Function<OpMonitor, BigInteger> {
 
 	@Override
@@ -104,10 +103,7 @@ class InfiniteOp implements Function<OpMonitor, BigInteger> {
 
 }
 
-@Plugin(type = Op.class, name = "test.progress")
-@Parameter(key = "monitor")
-@Parameter(key = "target")
-@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "test.progress", params = "monitor, target, output")
 class CountingOp implements BiFunction<OpMonitor, BigInteger, BigInteger> {
 
 	@Override

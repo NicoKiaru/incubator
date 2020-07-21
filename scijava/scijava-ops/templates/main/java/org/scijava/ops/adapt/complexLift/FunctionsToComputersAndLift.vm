@@ -38,12 +38,10 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import org.scijava.Priority;
+import org.scijava.ops.OpClass;
 import org.scijava.ops.OpDependency;
-import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Functions;
-import org.scijava.param.Parameter;
-import org.scijava.plugin.Plugin;
 
 /**
  * Collection of adaptation Ops to convert {@link Functions} into
@@ -55,9 +53,7 @@ import org.scijava.plugin.Plugin;
 public class FunctionsToComputersAndLift {
 #foreach($arity in [1..$maxArity])
 
-	@Plugin(type = Op.class, name = "adapt", priority = Priority.LOW)
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
+	@OpClass(names = "adapt", priority = Priority.LOW, params = "fromOp, toOp")
 	public static class Function${arity}ToComputer${arity}AndLiftAfter$generics.call($arity) implements
 		Function<$functionArity.call($arity)$generics.call($arity), $computerArity.call($arity)$iterableGenerics.call($arity)>
 	{
@@ -76,9 +72,7 @@ public class FunctionsToComputersAndLift {
 
 	}
 
-	@Plugin(type = Op.class, name = "adapt", priority = Priority.LOW + 1)
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
+	@OpClass(names = "adapt", priority = Priority.LOW + 1, params = "fromOp, toOp")
 	public static class Function${arity}ToComputer${arity}AndLiftBefore$generics.call($arity) implements
 		Function<$functionArity.call($arity)$generics.call($arity), $computerArity.call($arity)$iterableGenerics.call($arity)>
 	{

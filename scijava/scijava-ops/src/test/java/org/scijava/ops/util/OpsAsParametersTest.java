@@ -7,15 +7,14 @@ import java.util.function.Function;
 
 import org.junit.Test;
 import org.scijava.ops.AbstractTestEnvironment;
+import org.scijava.ops.OpClass;
 import org.scijava.ops.OpField;
-import org.scijava.ops.core.Op;
 import org.scijava.ops.core.OpCollection;
-import org.scijava.ops.core.builder.OpBuilder;
 import org.scijava.ops.function.Functions;
-import org.scijava.types.Nil;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
 import org.scijava.struct.ItemIO;
+import org.scijava.types.Nil;
 
 @Plugin(type = OpCollection.class)
 public class OpsAsParametersTest extends AbstractTestEnvironment {
@@ -85,9 +84,7 @@ public class OpsAsParametersTest extends AbstractTestEnvironment {
 
 }
 
-@Plugin(type = Op.class, name = "test.parameter.class")
-@Parameter(key = "input")
-@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "test.parameter.class")
 class FuncClass implements Function<Number, Double> {
 
 	@Override

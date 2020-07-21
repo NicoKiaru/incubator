@@ -22,10 +22,10 @@ public final class Add<M extends Number, I extends Iterable<M>> {
 
 	// --------- Functions ---------
 
-	@OpField(names = NAMES) // vars = "number1, number2, result"
+	@OpField(names = NAMES, params = "number1, number2, result")
 	public static final BiFunction<Double, Double, Double> MathAddDoublesFunction = (t, u) -> t + u;
 
-	@OpField(priority = Priority.HIGH, names = NAMES) //  vars = "iter1, iter2, resultArray"
+	@OpField(priority = Priority.HIGH, names = NAMES, params = "iter1, iter2, resultArray")
 	public final BiFunction<I, I, Iterable<Double>> MathPointwiseAddIterablesFunction = (i1, i2) -> {
 		Stream<? extends Number> s1 = Streams.stream((Iterable<? extends Number>) i1);
 		Stream<? extends Number> s2 = Streams.stream((Iterable<? extends Number>) i2);
@@ -34,10 +34,10 @@ public final class Add<M extends Number, I extends Iterable<M>> {
 
 	// --------- Computers ---------
 
-	@OpField(names = NAMES) // vars = "integer1, integer2, resultInteger"
+	@OpField(names = NAMES, params = "integer1, integer2, resultInteger")
 	public static final BiFunction<BigInteger, BigInteger, BigInteger> MathAddBigIntegersComputer = (t, u) -> t.add(u);
 
-	@OpField(names = NAMES) // vars = "array1, array2, resultArray"
+	@OpField(names = NAMES, params = "array1, array2, resultArray")
 	public static final Computers.Arity2<double[], double[], double[]> MathPointwiseAddDoubleArraysComputer = (in1, in2, out) -> {
 		for (int i = 0; i < out.length; i++) {
 			out[i] = in1[i] + in2[i];
@@ -46,17 +46,17 @@ public final class Add<M extends Number, I extends Iterable<M>> {
 
 	// --------- Inplaces ---------
 
-	@OpField(names = NAMES) // vars = "arrayIO, array1"
+	@OpField(names = NAMES, params = "arrayIO, array1")
 	public static final Inplaces.Arity2_1<double[], double[]> MathPointwiseAddDoubleArraysInplace1 = (io, in2) -> {
 		for (int i = 0; i < io.length; i++) {
 			io[i] += in2[i];
 		}
 	};
 
-	@OpField(names = NAMES) // vars = "val1, val2, output"
+	@OpField(names = NAMES, params = "val1, val2, output")
 	public final BiFunction<M, M, Double> MathAddNumbersFunction = (in1, in2) -> in1.doubleValue() + in2.doubleValue();
 
-	@OpField(names = NAMES) // vars = "iterable, result"
+	@OpField(names = NAMES, params = "iterable, result")
 	public final Function<Iterable<M>, Double> MathReductionAdd = (iterable) -> {
 		return StreamSupport.stream(iterable.spliterator(), false).mapToDouble(Number::doubleValue).sum();
 	};

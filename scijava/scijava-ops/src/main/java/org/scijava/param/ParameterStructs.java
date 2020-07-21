@@ -28,6 +28,7 @@ import org.scijava.ops.MethodParameterOpDependencyMember;
 import org.scijava.ops.OpClass;
 import org.scijava.ops.OpDependency;
 import org.scijava.ops.OpDependencyMember;
+import org.scijava.ops.OpField;
 import org.scijava.ops.OpInfo;
 import org.scijava.ops.OpMethod;
 import org.scijava.ops.matcher.MatchingUtils;
@@ -127,23 +128,21 @@ public final class ParameterStructs {
 
 		final ArrayList<Member<?>> items = new ArrayList<>();
 		final ArrayList<ValidityProblem> problems = new ArrayList<>();
-		final Set<String> names = new HashSet<>();
 
 		// NB: Reject abstract classes.
 		checkModifiers(type.getName() + ": ", problems, type.getModifiers(), true, Modifier.ABSTRACT);
 		
 		// Reject classes without @OpClass annotations
+		OpClass annotation;
+		String[] names = {};
 		try {
-			type.getAnnotation(OpClass.class);
+			annotation = type.getAnnotation(OpClass.class);
+			names = annotation.names().split("\\s*,\\s*");
 		} catch (NullPointerException e) {
 			problems.add(new ValidityProblem(type.getName() + ": Must declare @OpClass annotation."));
 		}
 
-		// Parse class level (i.e., generic) @Parameter annotations.
-		final Class<?> paramsClass = findParametersDeclaration(type);
-		if (paramsClass != null) {
-			parseFunctionalParameters(items, names, problems, paramsClass, type, false);
-		}
+		obtainFunctionalParameters(items, names, problems, type);
 
 		// Parse field level @OpDependency annotations.
 		parseFieldOpDependencies(items, problems, type);
@@ -164,17 +163,27 @@ public final class ParameterStructs {
 	 */
 	public static List<Member<?>> parse(final Field field) throws ValidityException {
 		Class<?> c = field.getDeclaringClass();
-		if (c == null || field == null) return null;
+		if (c == null) return null;
 
 		field.setAccessible(true);
 		
 		final ArrayList<Member<?>> items = new ArrayList<>();
 		final ArrayList<ValidityProblem> problems = new ArrayList<>();
-		final Set<String> names = new HashSet<>();
 		final Type fieldType = Types.fieldType(field, c);
+		
+		// Reject fields without @OpField annotations
+		OpField annotation;
+		String[] names = {};
+		try {
+			annotation = field.getAnnotation(OpField.class);
+			names = annotation.names().split("\\s*,\\s*");
+		} catch (NullPointerException e) {
+			problems.add(new ValidityProblem(field.getName() + ": Must declare @OpClass annotation."));
+		}
+		
 
 		checkModifiers(field.toString() + ": ", problems, field.getModifiers(), false, Modifier.FINAL);
-		parseFunctionalParameters(items, names, problems, field, fieldType, false);
+		obtainFunctionalParameters(items, names, problems, fieldType);
 
 		// Fail if there were any problems.
 		if (!problems.isEmpty()) {
@@ -188,9 +197,12 @@ public final class ParameterStructs {
 	public static List<Member<?>> parse(final OpInfo opInfo, final Type newType) throws ValidityException {
 		final ArrayList<Member<?>> items = new ArrayList<>();
 		final ArrayList<ValidityProblem> problems = new ArrayList<>();
-		final Set<String> names = new HashSet<>();
+		final String[] names = opInfo.struct().members().stream() // Stream the members of the old struct
+				.map(member -> member.getKey()) // Grab the names of each member
+				.toArray(String[]::new); // Obtain an array of the names
 
-		parseFunctionalParameters(items, names, problems, opInfo.getAnnotationBearer(), newType, true);
+
+		obtainFunctionalParameters(items, names, problems, newType);
 
 		// Fail if there were any problems.
 		if (!problems.isEmpty()) {
@@ -412,28 +424,28 @@ public final class ParameterStructs {
 	 * @param problems 
 	 * @return
 	 */
-	private static Parameter[] synthesizeParameterAnnotations(final List<FunctionalMethodType> fmts, final Set<String> names) {
+	private static Parameter[] synthesizeParameterAnnotations(final List<FunctionalMethodType> fmts, final String[] names) {
 		List<Parameter> params = new ArrayList<>();
 		
-		int ins, outs, insOuts;
-		ins = outs = insOuts = 1;
-		for (FunctionalMethodType fmt : fmts) {
+		int ins, insOuts;
+		ins = insOuts = 1;
+		for (int i = 0; i < fmts.size(); i++) {
+			FunctionalMethodType fmt = fmts.get(i);
 			Map<String, Object> paramValues = new HashMap<>();
 			paramValues.put(Parameter.ITEMIO_FIELD_NAME, fmt.itemIO());
 			
 			String key;
 			switch (fmt.itemIO()) {
 			case BOTH:
-				key = "mutable" + insOuts;
+				key = i < names.length ? names[i] : "mutable" + insOuts;
 				insOuts++;
 				break;
 			case INPUT:
-				key = "input" + ins;
+				key = i < names.length ? names[i] : "input" + ins;
 				ins++;
 				break;
 			case OUTPUT:
-				key = "output";
-				outs++;
+				key = i < names.length ? names[i] : "output";
 				break;
 			default:
 				throw new RuntimeException("Unexpected ItemIO type encountered!");
@@ -490,8 +502,7 @@ public final class ParameterStructs {
 //		return dirty;
 //	}
 	
-	private static void parseFunctionalParameters(final ArrayList<Member<?>> items, final Set<String> names, final ArrayList<ValidityProblem> problems,
-			AnnotatedElement annotationBearer, Type type) {
+	private static void obtainFunctionalParameters(final ArrayList<Member<?>> items, final String[] names, final ArrayList<ValidityProblem> problems, Type type) {
 		//Search for the functional method of 'type' and map its signature to ItemIO
 		List<FunctionalMethodType> fmts = findFunctionalMethodTypes(type);
 		if (fmts == null) {
@@ -503,26 +514,6 @@ public final class ParameterStructs {
 		// TODO: remove Parameter annotations from all ops and remove logic below.
 		// TODO: grab names from OpClass/OpField annotations.
 		Parameter[] annotations = synthesizeParameterAnnotations(fmts, names);
-//		// 'type' is annotated, resolve ItemIO.AUTO by matching it to the signature of the functional method
-//		if (annotations.length > 0 && !synthesizeAnnotations) {
-//			if (annotations.length != fmts.size()) {
-//				String fmtIOs = Arrays.deepToString(fmts.stream().map(fmt -> fmt.itemIO()).toArray(ItemIO[]::new));
-//				problems.add(new ValidityProblem("The number of inferred functional method types does not match "
-//						+ "the number of specified parameters annotations.\n"
-//						+ "#inferred functional method types: " + fmts.size() + " " +  fmtIOs + "\n"
-//						+ "#specified paraeter annotations: " + annotations.length));
-//				return;
-//			}
-//			// START HERE: Instead of hacking the annotation here, we need to 
-//			if (resolveItemIOAuto(annotations, fmts, problems)) {
-//				// specified parameter annotations do not match functional method signature
-//				return;
-//			}
-//		// 'type' is not annotated, synthesize parameter annotations using defaults and ItemIO inferred from 
-//		// the functional method
-//		} else {
-//			annotations = synthesizeParameterAnnotations(fmts);
-//		}
 		
 		for (int i=0; i<annotations.length; i++) {
 			String key = annotations[i].key();
@@ -535,7 +526,6 @@ public final class ParameterStructs {
 			try {
 				final ParameterMember<?> item = //
 						new FunctionalParameterMember<>(itemType, annotations[i]);
-				names.add(key);
 				items.add(item);
 			}
 			catch (final ValidityException exc) {
@@ -649,7 +639,7 @@ public final class ParameterStructs {
 
 	// TODO: how much of this can be deleted?
 	private static boolean checkValidity(Parameter param, String name,
-		Class<?> type, boolean isFinal, Set<String> names,
+		Class<?> type, boolean isFinal, String[] names,
 		ArrayList<ValidityProblem> problems)
 	{
 		boolean valid = true;
@@ -658,13 +648,6 @@ public final class ParameterStructs {
 		if (isFinal && !isMessage) {
 			// NB: Final parameters are bad because they cannot be modified.
 			final String error = "Invalid final parameter: " + name;
-			problems.add(new ValidityProblem(error));
-			valid = false;
-		}
-
-		if (names.contains(name)) {
-			// NB: Shadowed parameters are bad because they are ambiguous.
-			final String error = "Invalid duplicate parameter: " + name;
 			problems.add(new ValidityProblem(error));
 			valid = false;
 		}

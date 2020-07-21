@@ -29,6 +29,12 @@
 
 package org.scijava.ops.matcher;
 
+import com.github.therapi.runtimejavadoc.ClassJavadoc;
+import com.github.therapi.runtimejavadoc.CommentFormatter;
+import com.github.therapi.runtimejavadoc.MethodJavadoc;
+import com.github.therapi.runtimejavadoc.ParamJavadoc;
+import com.github.therapi.runtimejavadoc.RuntimeJavadoc;
+
 import java.lang.reflect.AnnotatedElement;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -61,6 +67,7 @@ public class OpClassInfo implements OpInfo {
 	private final double priority;
 	
 	private final boolean simplifiable;
+	private static final CommentFormatter formatter = new CommentFormatter();
 
 	public OpClassInfo(final Class<?> opClass) {
 		this(opClass, priorityFromAnnotation(opClass), simplifiableFromAnnotation(opClass));
@@ -69,6 +76,15 @@ public class OpClassInfo implements OpInfo {
 	public OpClassInfo(final Class<?> opClass, final double priority, final boolean simplifiable) {
 		this.opClass = opClass;
 		try {
+			ClassJavadoc classDoc = RuntimeJavadoc.getJavadoc(opClass);
+			List<MethodJavadoc> methodDocs = classDoc.getMethods();
+			for (MethodJavadoc methodDoc : methodDocs) {
+				for (ParamJavadoc paramDoc : methodDoc.getParams()) {
+					System.out.println("  param " + paramDoc.getName() + " " + formatter
+						.format(paramDoc.getComment()));
+				}
+			}
+			
 			struct = ParameterStructs.structOf(opClass);
 			OpUtils.checkHasSingleOutput(struct);
 		} catch (ValidityException e) {

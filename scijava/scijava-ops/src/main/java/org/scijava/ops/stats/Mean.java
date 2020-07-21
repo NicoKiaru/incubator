@@ -3,17 +3,12 @@ package org.scijava.ops.stats;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import org.scijava.ops.OpClass;
 import org.scijava.ops.OpDependency;
-import org.scijava.ops.core.Op;
-import org.scijava.param.Parameter;
-import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 public class Mean {
 
-	@Plugin(type = Op.class, name = "stats.mean")
-	@Parameter(key = "iterable")
-	@Parameter(key = "mean", itemIO = ItemIO.OUTPUT)
+	@OpClass(names = "stats.mean", params = "iterable, mean")
 	public static class MeanFunction <N, O> implements Function<Iterable<N>, O>{
 
 		@OpDependency(name = "math.add")

@@ -9,8 +9,8 @@ import java.util.function.Function;
 import org.junit.Test;
 import org.scijava.Priority;
 import org.scijava.ops.AbstractTestEnvironment;
+import org.scijava.ops.OpClass;
 import org.scijava.ops.core.Op;
-import org.scijava.ops.core.builder.OpBuilder;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Producer;
 import org.scijava.param.Mutable;
@@ -87,10 +87,7 @@ public class MatchingWithAnyTest extends AbstractTestEnvironment {
 	
 }
 
-@Plugin(type = Op.class, name = "test.functionAndLongToLong")
-@Parameter(key = "input")
-@Parameter(key = "op")
-@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "test.functionAndLongToLong", params = "op, input, output")
 class FunctionAndLongToLong implements BiFunction<Function<Long, Long>, Long, Long> {
 
 	@Override
@@ -100,10 +97,7 @@ class FunctionAndLongToLong implements BiFunction<Function<Long, Long>, Long, Lo
 	
 }
 
-@Plugin(type = Op.class, name = "test.integerAndLongAndNotAnyComputer")
-@Parameter(key = "input1")
-@Parameter(key = "input2")
-@Parameter(key = "output", itemIO = ItemIO.BOTH)
+@OpClass(names = "test.integerAndLongAndNotAnyComputer")
 class IntegerAndLongAndNotAnyComputer implements Computers.Arity2<Integer, Long, MutableNotAny> {
 
 	@Override
@@ -125,8 +119,7 @@ class MutableNotAny {
 	}
 }
 
-@Plugin(type = Op.class, name = "create, create.mutableNotAny")
-@Parameter(key = "mutableNotAny", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "create, create.mutableNotAny", params = "mutableNotAny")
 class MutableNotAnyCreator implements Producer<MutableNotAny> {
 
 	@Override
@@ -166,9 +159,7 @@ class NestedThing<U, V extends Thing<?>> {
 	}
 }
 
-@Plugin(type = Op.class, name = "test.any")
-@Parameter(key = "thing")
-@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "test.any", params = "thing, output")
 class ThingFunction implements Function<Thing<String>, Double> {
 
 	@Override
@@ -178,9 +169,7 @@ class ThingFunction implements Function<Thing<String>, Double> {
 
 }
 
-@Plugin(type = Op.class, name = "test.exceptionalAny")
-@Parameter(key = "thing")
-@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "test.exceptionalAny", params = "thing, output")
 class ExceptionalThingFunction implements Function<ExceptionalThing<String>, Double> {
 
 	@Override
@@ -191,9 +180,7 @@ class ExceptionalThingFunction implements Function<ExceptionalThing<String>, Dou
 
 }
 
-@Plugin(type = Op.class, name = "test.nestedAny")
-@Parameter(key = "nestedThing")
-@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+@OpClass(names = "test.nestedAny", params = "nestedThing, output")
 class NestedThingFunction implements Function<NestedThing<String, Thing<String>>, Double> {
 
 	@Override

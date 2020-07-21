@@ -28,7 +28,6 @@ public class CreateOpCollection {
 		return new double[i1.length];
 	};
 	
-	@OpField(names = "create", priority = Priority.HIGH)
-	@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+	@OpField(names = "create", priority = Priority.HIGH, params = "output")
 	public static final Producer<Double> doubleSource = () -> 0.0;
 }

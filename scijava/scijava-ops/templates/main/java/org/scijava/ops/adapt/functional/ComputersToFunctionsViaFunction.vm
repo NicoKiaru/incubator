@@ -37,12 +37,10 @@ package org.scijava.ops.adapt.functional;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
+import org.scijava.ops.OpClass;
 import org.scijava.ops.OpDependency;
-import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Functions;
-import org.scijava.param.Parameter;
-import org.scijava.plugin.Plugin;
 
 /**
  * Collection of adaptation Ops to convert {@link Computers} into
@@ -54,9 +52,7 @@ import org.scijava.plugin.Plugin;
 public class ComputersToFunctionsViaFunction {
 
 #foreach($arity in [1..$maxArity])
-	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
+	@OpClass(names = "adapt", params = "fromOp, toOp")
 	public static class Computer${arity}ToFunction${arity}ViaFunction$generics.call($arity)
 			implements Function<$computerArity.call($arity)$generics.call($arity), $functionArity.call($arity)$generics.call($arity)> {
 
