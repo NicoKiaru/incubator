@@ -17,6 +17,9 @@ public class CreateOpCollection {
 	@OpField(names = "create, src, source", priority = Priority.LOW, params = "array, arrayLike")
 	public static final Function<double[], double[]> createDoubleArrayInputAware = from -> new double[from.length];
 	
+	@OpField(names = "create, src, source", priority = Priority.LOW, params = "array, arrayLike")
+	public static final Function<Double[], Double[]> createBoxedDoubleArrayInputAware = from -> new Double[from.length];
+	
 	@OpField(names = "create, src, source", priority = Priority.LOW, params = "array1, array2, arrayLike")
 	public static final BiFunction<double[], double[], double[]> createDoubleArrayBiInputAware = (i1, i2) -> {
 		if (i1.length != i2.length) {
