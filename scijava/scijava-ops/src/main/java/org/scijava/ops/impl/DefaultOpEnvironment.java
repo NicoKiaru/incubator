@@ -248,11 +248,14 @@ public class DefaultOpEnvironment extends AbstractContextual implements OpEnviro
 				return adaptOp(ref);
 			}
 			catch (OpMatchingException e2) {
-				// no adapted match
-				OpMatchingException adaptedMatchException = new OpMatchingException(
-					"No Op available for request: " + ref, e2);
-				adaptedMatchException.addSuppressed(e1);
-				throw adaptedMatchException;
+				// It is important that the adaptation error be suppressed here.
+				// If a failure occurs in Op matching, it
+				// is not the fault of our adaptation process but is instead due to the
+				// incongruity between the request and the set of available Ops. Thus
+				// the error stemming from the direct match attempt will provide the
+				// user with more information on how to fix their Op request.
+				e1.addSuppressed(e2);
+				throw e1;
 			}
 		}
 	}
