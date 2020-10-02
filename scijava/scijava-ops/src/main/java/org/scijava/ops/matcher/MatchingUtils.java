@@ -239,7 +239,7 @@ public final class MatchingUtils {
 	 * @return whether and assignment of source to destination would be a legal
 	 *         java statement
 	 */
-	public static boolean checkGenericAssignability(Type src,
+	public static boolean[] checkGenericAssignability(Type src,
 		ParameterizedType dest, Map<TypeVariable<?>, Type> typeVarAssigns,
 		boolean safeAssignability)
 	{
@@ -250,7 +250,7 @@ public final class MatchingUtils {
 		}
 
 		// fail fast when raw types are not assignable
-		if (!Types.isAssignable(Types.raw(src), Types.raw(dest))) return false;
+		if (!Types.isAssignable(Types.raw(src), Types.raw(dest))) return fillBooleanArray(1, false);
 
 		// when raw types are assignable, check the type variables of src and dest
 		Type[] srcTypes = typeParamsAgainstClass(src, Types.raw(dest));
@@ -258,10 +258,10 @@ public final class MatchingUtils {
 
 		// if there are no type parameters in src (w.r.t. dest), do a basic
 		// assignability check.
-		if (srcTypes.length == 0) return Types.isAssignable(src, dest);
+		if (srcTypes.length == 0) return new boolean[] {Types.isAssignable(src, dest)};
 		// if there are type parameters, do a more complicated assignability check.
 		Map<TypeVariable<?>, TypeMapping> typeMappings = new HashMap<>();
-		boolean result = checkGenericAssignability(srcTypes, destTypes, src, dest,
+		boolean[] result = checkGenericAssignability(srcTypes, destTypes, src, dest,
 			typeMappings, safeAssignability);
 		if (typeVarAssigns != null) {
 			typeVarAssigns.putAll(new TypeVarAssigns(typeMappings));
@@ -324,11 +324,15 @@ public final class MatchingUtils {
 	 * @return whether and assignment of source to destination would be a legal java
 	 *         statement
 	 */
-	public static boolean checkGenericAssignability(Type src, ParameterizedType dest, boolean safeAssignability) {
+	public static boolean[] checkGenericAssignability(Type src, ParameterizedType dest, boolean safeAssignability) {
 		return checkGenericAssignability(src, dest, null, safeAssignability);
 	}
 
 	/**
+	 * FIXME: I think the ideal return here is a net.imglib2.Pair<boolean, boolean[]> where
+	 * * the boolean maintains the old behavior of this method
+	 * * the boolean[] contains assignability data for each Type in srcTypes
+	 * 
 	 * @param srcTypes the Type arguments for the source Type
 	 * @param destTypes the Type arguments for the destination Type
 	 * @param src the type for which assignment should be checked from
@@ -343,12 +347,12 @@ public final class MatchingUtils {
 	 * @return whether and assignment of source to destination would be a legal
 	 *         java statement
 	 */
-	private static boolean checkGenericAssignability(Type[] srcTypes, Type[] destTypes, Type src, Type dest,
+	private static boolean[] checkGenericAssignability(Type[] srcTypes, Type[] destTypes, Type src, Type dest,
 			Map<TypeVariable<?>, TypeMapping> typeMappings, boolean safeAssignability) {
 		// if the number of type arguments does not match, the types can't be
 		// assignable
 		if (srcTypes.length != destTypes.length) {
-			return false;
+			return fillBooleanArray(srcTypes.length, false);
 		}
 		
 		TypeVarAssigns typeVarAssigns = new TypeVarAssigns(typeMappings);
@@ -366,7 +370,8 @@ public final class MatchingUtils {
 			// Comparable<T> from Object since a Comparable<T> is an Object for any T.
 			// It would be nice if we could just return false any time we catch a
 			// TypeInferenceException, but until we sort this out, we cannot do so.
-			return safeAssignability && isSafeAssignable(destTypes, typeVarAssigns, src, dest);
+			return isSafeAssignable(destTypes, typeVarAssigns, src, dest);
+//			return safeAssignability && isSafeAssignable(destTypes, typeVarAssigns, src, dest);
 		}
 
 		// Map TypeVariables in src to Types
@@ -374,11 +379,21 @@ public final class MatchingUtils {
 		Type[] mappedSrcTypes = mapVarToTypes(srcTypes, typeVarAssigns);
 		Type inferredSrcType = Types.parameterize(matchingRawType, mappedSrcTypes);
 
-		// Check assignability
-		if (Types.isAssignable(inferredSrcType, dest, typeVarAssigns)) return true;
+		// Check assignability - if satisfies, all type parameters satisfy
+		if (Types.isAssignable(inferredSrcType, dest, typeVarAssigns))
+			return fillBooleanArray(srcTypes.length, true);
 
-		return safeAssignability && isSafeAssignable(destTypes, typeVarAssigns, src,
-			dest);
+		return isSafeAssignable(destTypes, typeVarAssigns, src, dest);
+//		return safeAssignability && isSafeAssignable(destTypes, typeVarAssigns, src,
+//			dest);
+	}
+
+	private static boolean[] fillBooleanArray(int length, boolean val) {
+		boolean[] satisfied = new boolean[length];
+		for(int i = 0; i < satisfied.length; i++) {
+			satisfied[i] = val;
+		}
+		return satisfied;
 	}
 
 	/**
@@ -401,24 +416,26 @@ public final class MatchingUtils {
 	 * @return boolean - true if we can safely match this Op even though the types
 	 *         do not directly match up. False otherwise.
 	 */
-	public static boolean isSafeAssignable(Type[] destTypes, Map<TypeVariable<?>, Type> typeVarAssigns, Type src,
+	public static boolean[] isSafeAssignable(Type[] destTypes, Map<TypeVariable<?>, Type> typeVarAssigns, Type src,
 			Type dest) {
 
+		boolean[] satisfied = new boolean[destTypes.length];
 		Method[] destMethods = Arrays.stream(Types.raw(dest).getDeclaredMethods())
 				.filter(method -> Modifier.isAbstract(method.getModifiers())).toArray(Method[]::new);
 		Type[] params = Types.getExactParameterTypes(destMethods[0], src);
 		Type returnType = Types.getExactReturnType(destMethods[0], src);
 		for (int i = 0; i < params.length; i++) {
-			if (!Types.isAssignable(destTypes[i], params[i], typeVarAssigns))
-				return false;
+			satisfied[i] = !Types.isAssignable(destTypes[i], params[i], typeVarAssigns);
 		}
 
 		// Computers will have void as their return type, meaning that there is no
 		// output to check.
 		if (returnType == void.class)
-			return true;
+			return satisfied;
 
-		return Types.isAssignable(returnType, destTypes[destTypes.length - 1], typeVarAssigns);
+		satisfied[satisfied.length - 1] = Types.isAssignable(returnType,
+			destTypes[destTypes.length - 1], typeVarAssigns);
+		return satisfied;
 	}
 
 	/**

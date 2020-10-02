@@ -134,7 +134,7 @@ public class OpRef {
 		return sb.toString();
 	}
 
-	public boolean typesMatch(final Type opType) {
+	public boolean[] typesMatch(final Type opType) {
 		return typesMatch(opType, new HashMap<>());
 	}
 
@@ -142,12 +142,15 @@ public class OpRef {
 	 * Determines whether the specified type satisfies the op's required types
 	 * using {@link Types#isApplicable(Type[], Type[])}.
 	 */
-	public boolean typesMatch(final Type opType, final Map<TypeVariable<?>, Type> typeVarAssigns) {
+	public boolean[] typesMatch(final Type opType, final Map<TypeVariable<?>, Type> typeVarAssigns) {
 		if (types == null)
-			return true;
+			return new boolean[] {true};
+		// TODO: suppose we have multiple types. How do we reconcile different types
+		// returning different boolean arrays?
 		for (Type t : types) {
 			if(t instanceof ParameterizedType) {
-				if (!MatchingUtils.checkGenericAssignability(opType, (ParameterizedType) t, typeVarAssigns, true)) {
+				boolean[] satisfied = MatchingUtils.checkGenericAssignability(opType, (ParameterizedType) t, typeVarAssigns, true);
+				for (boolean b : satisfied) {
 					return false;
 				}
 			} else {
