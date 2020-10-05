@@ -70,6 +70,7 @@ public class OpCandidate {
 	private final OpInfo info;
 
 	private final Map<TypeVariable<?>, Type> typeVarAssigns;
+	private final AssignabilityResult assignability;
 
 	private StatusCode code;
 	private String message;
@@ -80,13 +81,14 @@ public class OpCandidate {
 	private final Type[] paddedArgs;
 
 	public OpCandidate(final OpEnvironment env, final Logger log, final OpRef ref, final OpInfo info,
-		final Map<TypeVariable<?>, Type> typeVarAssigns)
+		final Map<TypeVariable<?>, Type> typeVarAssigns, AssignabilityResult assignability)
 	{
 		this.env = env;
 		this.log = log;
 		this.ref = ref;
 		this.info = info;
 		this.typeVarAssigns = typeVarAssigns;
+		this.assignability = assignability;
 
 		this.paddedArgs = OpUtils.padTypes(this, getRef().getArgs());
 	}
@@ -144,6 +146,11 @@ public class OpCandidate {
 	/** Gets the matching status code. */
 	public StatusCode getStatusCode() {
 		return code;
+	}
+	
+	/** Gets the assignabilty status */
+	public AssignabilityResult getAssignability() {
+		return assignability;
 	}
 
 	/**

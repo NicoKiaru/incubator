@@ -236,10 +236,14 @@ public final class MatchingUtils {
 	 *          src->dest assignment would be safely assignable even though it
 	 *          would cause a compiler error if we explicitly tried to do this
 	 *          (useful pretty much only for Op matching)
-	 * @return whether and assignment of source to destination would be a legal
-	 *         java statement
+	 * @return a {@link AssignabilityResult} declaring whether:
+	 *         <ul>
+	 *         <li>the assignment of source to destination would be a legal java
+	 *         statement
+	 *         <li>the type parameters of source are assignable to the type parameters of dest
+	 *         </ul>
 	 */
-	public static boolean[] checkGenericAssignability(Type src,
+	public static AssignabilityResult checkGenericAssignability(Type src,
 		ParameterizedType dest, Map<TypeVariable<?>, Type> typeVarAssigns,
 		boolean safeAssignability)
 	{
@@ -249,16 +253,21 @@ public final class MatchingUtils {
 					" entries");
 		}
 
-		// fail fast when raw types are not assignable
-		if (!Types.isAssignable(Types.raw(src), Types.raw(dest))) return fillBooleanArray(1, false);
-
 		// when raw types are assignable, check the type variables of src and dest
 		Type[] srcTypes = typeParamsAgainstClass(src, Types.raw(dest));
 		Type[] destTypes = dest.getActualTypeArguments();
 
+		// fail fast when raw types are not assignable
+		// TODO: what in the world should we fill argsAssignable with?
+		if (!Types.isAssignable(Types.raw(src), Types.raw(dest))) 
+			return new AssignabilityResult(false, fillBooleanArray(srcTypes.length, false));
+
 		// if there are no type parameters in src (w.r.t. dest), do a basic
 		// assignability check.
-		if (srcTypes.length == 0) return new boolean[] {Types.isAssignable(src, dest)};
+		if (srcTypes.length == 0) {
+			return new AssignabilityResult(Types.isAssignable(src, dest), new boolean[] {});
+		}
+
 		// if there are type parameters, do a more complicated assignability check.
 		Map<TypeVariable<?>, TypeMapping> typeMappings = new HashMap<>();
 		boolean[] result = checkGenericAssignability(srcTypes, destTypes, src, dest,
@@ -266,7 +275,9 @@ public final class MatchingUtils {
 		if (typeVarAssigns != null) {
 			typeVarAssigns.putAll(new TypeVarAssigns(typeMappings));
 		}
-		return result;
+		//TODO: can this be triggered?
+		if (result.length != srcTypes.length) throw new IllegalStateException();
+		return new AssignabilityResult(true, result);
 	}
 
 	/**
@@ -324,7 +335,7 @@ public final class MatchingUtils {
 	 * @return whether and assignment of source to destination would be a legal java
 	 *         statement
 	 */
-	public static boolean[] checkGenericAssignability(Type src, ParameterizedType dest, boolean safeAssignability) {
+	public static AssignabilityResult checkGenericAssignability(Type src, ParameterizedType dest, boolean safeAssignability) {
 		return checkGenericAssignability(src, dest, null, safeAssignability);
 	}
 
@@ -370,7 +381,7 @@ public final class MatchingUtils {
 			// Comparable<T> from Object since a Comparable<T> is an Object for any T.
 			// It would be nice if we could just return false any time we catch a
 			// TypeInferenceException, but until we sort this out, we cannot do so.
-			return isSafeAssignable(destTypes, typeVarAssigns, src, dest);
+			return isSafeAssignable(destTypes, typeVarAssigns, src, dest, safeAssignability);
 //			return safeAssignability && isSafeAssignable(destTypes, typeVarAssigns, src, dest);
 		}
 
@@ -383,7 +394,7 @@ public final class MatchingUtils {
 		if (Types.isAssignable(inferredSrcType, dest, typeVarAssigns))
 			return fillBooleanArray(srcTypes.length, true);
 
-		return isSafeAssignable(destTypes, typeVarAssigns, src, dest);
+		return isSafeAssignable(destTypes, typeVarAssigns, src, dest, safeAssignability);
 //		return safeAssignability && isSafeAssignable(destTypes, typeVarAssigns, src,
 //			dest);
 	}
@@ -417,7 +428,7 @@ public final class MatchingUtils {
 	 *         do not directly match up. False otherwise.
 	 */
 	public static boolean[] isSafeAssignable(Type[] destTypes, Map<TypeVariable<?>, Type> typeVarAssigns, Type src,
-			Type dest) {
+			Type dest, boolean safeAssignable) {
 
 		boolean[] satisfied = new boolean[destTypes.length];
 		Method[] destMethods = Arrays.stream(Types.raw(dest).getDeclaredMethods())
@@ -425,7 +436,9 @@ public final class MatchingUtils {
 		Type[] params = Types.getExactParameterTypes(destMethods[0], src);
 		Type returnType = Types.getExactReturnType(destMethods[0], src);
 		for (int i = 0; i < params.length; i++) {
-			satisfied[i] = !Types.isAssignable(destTypes[i], params[i], typeVarAssigns);
+			satisfied[i] = Types.isAssignable(destTypes[i], params[i], typeVarAssigns);
+			if (!safeAssignable)
+				satisfied[i] &= destTypes[i].equals(params[i]);
 		}
 
 		// Computers will have void as their return type, meaning that there is no
@@ -433,8 +446,11 @@ public final class MatchingUtils {
 		if (returnType == void.class)
 			return satisfied;
 
-		satisfied[satisfied.length - 1] = Types.isAssignable(returnType,
-			destTypes[destTypes.length - 1], typeVarAssigns);
+		int last = satisfied.length - 1;
+		satisfied[last] = Types.isAssignable(returnType,
+			destTypes[last], typeVarAssigns);
+		if (!safeAssignable)
+			satisfied[last] &= destTypes[last].equals(returnType);
 		return satisfied;
 	}
 

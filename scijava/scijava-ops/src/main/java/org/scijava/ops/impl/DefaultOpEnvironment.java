@@ -413,7 +413,8 @@ public class DefaultOpEnvironment extends AbstractContextual implements OpEnviro
 					.getType(), map);
 				OpAdaptationInfo adaptedInfo = new OpAdaptationInfo(srcCandidate
 					.opInfo(), adapterOpType, adaptorOp);
-				OpCandidate adaptedCandidate = new OpCandidate(this, log, ref, adaptedInfo, map);
+				// TODO: consider if srcCandidate.getAsssignability is right here.
+				OpCandidate adaptedCandidate = new OpCandidate(this, log, ref, adaptedInfo, map, srcCandidate.getAssignability());
 				adaptedCandidate.setStatus(StatusCode.MATCH);
 				return adaptedCandidate;
 			}
@@ -432,7 +433,7 @@ public class DefaultOpEnvironment extends AbstractContextual implements OpEnviro
 			// TODO: clean this logic
 			if (opType instanceof ParameterizedType) {
 				if (!MatchingUtils.checkGenericAssignability(adaptTo,
-					(ParameterizedType) opType, map, true))
+					(ParameterizedType) opType, map, true).isAssignable())
 				{
 					return false;
 				}

@@ -98,17 +98,10 @@ public class DefaultOpMatcher extends AbstractService implements OpMatcher {
 		for (final OpRef ref : refs) {
 			for (final OpInfo info : env.infos(ref.getName())) {
 				Map<TypeVariable<?>, Type> typeVarAssigns = new HashMap<>();
-				boolean[] satisfied =  ref.typesMatch(info.opType(), typeVarAssigns);
-				boolean overall = true;
-				for (boolean b : satisfied) overall &= b;
-				if(overall)
-					candidates.add(new OpCandidate(env, log, ref, info, typeVarAssigns));
-				}
-				else {
-					OpCandidate mismatch = new OpCandidate(env, log, ref, info, typeVarAssigns);
-					mismatch.setStatus(StatusCode.);
-					candidates.add(new Op)
-				}
+				AssignabilityResult result = ref.typesMatch(info.opType(), typeVarAssigns);
+				// TODO: consider what we should put here.
+				if(result.isAssignable())
+					candidates.add(new OpCandidate(env, log, ref, info, typeVarAssigns, result));
 			}
 		}
 		return candidates;

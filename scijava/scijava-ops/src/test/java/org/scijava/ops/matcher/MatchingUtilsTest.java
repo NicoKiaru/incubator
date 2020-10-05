@@ -57,7 +57,7 @@ public class MatchingUtilsTest {
 	private void assertAll(Class<?> from, boolean condition, Type... tos) {
 		for (Type to : tos) {
 			if (to instanceof ParameterizedType) {
-				assertTrue(MatchingUtils.checkGenericAssignability(from, (ParameterizedType) to, false) == condition);
+				assertTrue(MatchingUtils.checkGenericAssignability(from, (ParameterizedType) to, false).isAssignable() == condition);
 			} else {
 				assertTrue(Types.isAssignable(from, to, new HashMap<TypeVariable<?>, Type>()) == condition);
 			}
@@ -508,7 +508,7 @@ public class MatchingUtilsTest {
 		// unfortunately we cannot use assertAll since it is impossible to create a
 		// Class implementing List<? super T>
 		boolean success = MatchingUtils.checkGenericAssignability(listT.getType(),
-			(ParameterizedType) listWildcard.getType(), false);
+			(ParameterizedType) listWildcard.getType(), false).isAssignable();
 		Assert.assertTrue(success);
 	}
 
