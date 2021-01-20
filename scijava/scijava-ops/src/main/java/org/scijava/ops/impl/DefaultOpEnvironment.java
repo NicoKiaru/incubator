@@ -773,7 +773,7 @@ public class DefaultOpEnvironment extends AbstractContextual implements OpEnviro
 
 	@Override
 	public void setHints(Hints hints) {
-		this.environmentHints = hints;
+		this.environmentHints = hints.getCopy();
 	}
 
 	/**
