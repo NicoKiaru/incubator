@@ -1,4 +1,4 @@
-module org.scijava.ops {
+open module org.scijava.ops {
 	
 	//TODO: rearrange packages to export only needed classes
 	exports org.scijava.ops; //contains OpDependency interface
