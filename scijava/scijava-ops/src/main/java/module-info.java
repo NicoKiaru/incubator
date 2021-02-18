@@ -23,6 +23,7 @@ open module org.scijava.ops {
 	requires org.scijava.types;
 	requires javassist;
 	requires java.compiler;
+	requires therapi.runtime.javadoc;
 
 	uses javax.annotation.processing.Processor;
 }
