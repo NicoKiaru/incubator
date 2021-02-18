@@ -40,7 +40,7 @@ public class JavadocParameterTest {
 		MethodJavadoc javadoc = RuntimeJavadoc.getJavadoc(opMethod);
 		System.out.println("Functional Method javadoc" + javadoc);
 		
-		ClassJavadoc classdoc = RuntimeJavadoc.getJavadoc(JavadocOp.class);
+		ClassJavadoc classdoc = RuntimeJavadoc.getJavadoc(org.scijava.ops.OpInfo.class);
 		System.out.println("Class javadoc" + classdoc);
 		
 		ClassJavadoc createDoc = RuntimeJavadoc.getJavadoc(CreateOpCollection.class);

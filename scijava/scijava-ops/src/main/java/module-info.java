@@ -14,15 +14,8 @@ module org.scijava.ops {
 	exports org.scijava.struct;
 	exports org.scijava.param;
 
-	// -- Open plugins to scijava-common
-	opens org.scijava.ops to org.scijava, therapi.runtime.javadoc;
-	opens org.scijava.ops.create to therapi.runtime.javadoc;
-	opens org.scijava.ops.impl to org.scijava;
-	opens org.scijava.param to therapi.runtime.javadoc;
-
   // FIXME: This is a file name and is thus unstable
   requires geantyref;
-	requires therapi.runtime.javadoc;
 
   requires java.desktop;
 
@@ -30,4 +23,6 @@ module org.scijava.ops {
 	requires org.scijava.types;
 	requires javassist;
 	requires java.compiler;
+
+	uses javax.annotation.processing.Processor;
 }
