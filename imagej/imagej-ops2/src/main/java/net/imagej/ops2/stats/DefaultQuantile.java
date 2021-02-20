@@ -29,22 +29,17 @@
 
 package net.imagej.ops2.stats;
 
+import static java.util.Collections.swap;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import net.imglib2.IterableInterval;
 import net.imglib2.type.numeric.RealType;
-import net.imglib2.util.Intervals;
 
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
-import org.scijava.util.ArrayUtils;
-import org.scijava.util.DoubleArray;
-
-import static java.util.Collections.swap;
 
 /**
  * {@link Op} to calculate the n-th {@code stats.percentile}.

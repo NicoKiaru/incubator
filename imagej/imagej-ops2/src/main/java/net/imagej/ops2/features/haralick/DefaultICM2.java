@@ -41,7 +41,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Functions;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Implementation of Information Measure of Correlation 2 Haralick Feature

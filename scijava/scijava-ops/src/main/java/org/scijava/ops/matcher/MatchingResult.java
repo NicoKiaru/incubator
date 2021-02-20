@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.scijava.ops.OpUtils;
-import org.scijava.ops.simplify.SimplifiedOpInfo;
 
 /**
  * Class representing the result from type matching done by the

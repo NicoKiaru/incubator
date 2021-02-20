@@ -3,7 +3,6 @@ package net.imagej.ops2.image.invert;
 import java.math.BigInteger;
 
 import net.imagej.types.UnboundedIntegerType;
-import net.imglib2.Cursor;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.loops.LoopBuilder;
 import net.imglib2.type.numeric.IntegerType;

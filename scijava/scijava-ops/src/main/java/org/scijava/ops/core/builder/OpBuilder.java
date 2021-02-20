@@ -44,7 +44,6 @@ import org.scijava.ops.function.Functions;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Producer;
 import org.scijava.types.Nil;
-import org.scijava.types.TypeService;
 import org.scijava.types.Types;
 
 /**

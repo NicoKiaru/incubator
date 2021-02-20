@@ -42,7 +42,6 @@ import org.scijava.Priority;
 import org.scijava.ops.core.Op;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Op used to calculate and return a centered padding interval given an input

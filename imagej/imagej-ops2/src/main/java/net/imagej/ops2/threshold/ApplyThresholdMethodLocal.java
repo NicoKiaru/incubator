@@ -33,7 +33,6 @@ package net.imagej.ops2.threshold;
 import java.util.function.BiFunction;
 
 import net.imagej.ops2.filter.ApplyCenterAwareNeighborhoodBasedFilter;
-import net.imglib2.IterableInterval;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.algorithm.neighborhood.Shape;
 import net.imglib2.histogram.Histogram1d;
@@ -44,11 +43,8 @@ import net.imglib2.type.numeric.RealType;
 import org.scijava.ops.OpDependency;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
-import org.scijava.ops.function.Computers;
-import org.scijava.ops.function.Computers;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Ops which compute and apply a local threshold to an image.

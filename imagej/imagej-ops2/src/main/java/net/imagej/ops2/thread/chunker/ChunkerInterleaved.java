@@ -38,7 +38,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Implementation of a {@link ChunkerOp} that interleaves the chunks. In a

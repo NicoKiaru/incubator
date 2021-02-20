@@ -30,7 +30,6 @@
 package net.imagej.ops2.filter.max;
 
 import net.imglib2.RandomAccessibleInterval;
-import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.algorithm.neighborhood.Shape;
 import net.imglib2.outofbounds.OutOfBoundsFactory;
 import net.imglib2.view.Views;
@@ -40,7 +39,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Default implementation of {@link MaxFilterOp}.

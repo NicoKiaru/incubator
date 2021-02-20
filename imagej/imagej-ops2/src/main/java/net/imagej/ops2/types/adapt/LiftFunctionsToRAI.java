@@ -4,13 +4,11 @@ package net.imagej.ops2.types.adapt;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-import net.imglib2.Cursor;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.img.Img;
 import net.imglib2.loops.LoopBuilder;
 import net.imglib2.type.Type;
 import net.imglib2.util.Util;
-import net.imglib2.view.Views;
 
 import org.scijava.Priority;
 import org.scijava.ops.OpField;

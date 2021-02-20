@@ -42,7 +42,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.util.Adapt;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Op used to pad the kernel using the default FFT padding scheme and shift the

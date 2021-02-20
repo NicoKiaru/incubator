@@ -33,7 +33,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Default implementation of the {@link IdentityOp} op.

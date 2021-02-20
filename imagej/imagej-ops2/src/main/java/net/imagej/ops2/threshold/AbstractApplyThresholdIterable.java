@@ -33,9 +33,7 @@ import net.imglib2.type.logic.BitType;
 
 import org.scijava.ops.OpDependency;
 import org.scijava.ops.function.Computers;
-import org.scijava.ops.function.Computers;
 import org.scijava.param.Parameter;
-import org.scijava.struct.ItemIO;
 
 /**
  * @author Curtis Rueden

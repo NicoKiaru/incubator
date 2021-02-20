@@ -48,17 +48,10 @@ import org.scijava.Priority;
 import org.scijava.ops.OpDependency;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
-import org.scijava.ops.function.Computers;
-import org.scijava.ops.function.Computers;
-import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Functions;
-import org.scijava.ops.function.Functions;
-import org.scijava.ops.function.Functions;
-import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Richardson Lucy with total variation function op that operates on (@link

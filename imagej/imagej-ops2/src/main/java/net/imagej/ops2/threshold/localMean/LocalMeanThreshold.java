@@ -36,7 +36,6 @@ import java.util.function.Function;
 import net.imagej.ops2.filter.ApplyCenterAwareNeighborhoodBasedFilter;
 import net.imagej.ops2.threshold.ApplyLocalThresholdIntegral;
 import net.imglib2.RandomAccessibleInterval;
-import net.imglib2.algorithm.neighborhood.Neighborhood;
 import net.imglib2.algorithm.neighborhood.RectangleNeighborhood;
 import net.imglib2.algorithm.neighborhood.RectangleShape;
 import net.imglib2.algorithm.neighborhood.Shape;
@@ -52,7 +51,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Implementation of the local mean threshold method for images. Makes use of

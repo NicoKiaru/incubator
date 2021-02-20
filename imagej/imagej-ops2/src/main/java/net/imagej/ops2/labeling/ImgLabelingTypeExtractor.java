@@ -38,10 +38,10 @@ import net.imglib2.roi.labeling.ImgLabeling;
 import net.imglib2.view.Views;
 
 import org.scijava.Priority;
-import org.scijava.types.TypeExtractor;
-import org.scijava.types.TypeService;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
+import org.scijava.types.TypeExtractor;
+import org.scijava.types.TypeService;
 
 /**
  * {@link TypeExtractor} plugin which operates on {@link Iterable} objects.

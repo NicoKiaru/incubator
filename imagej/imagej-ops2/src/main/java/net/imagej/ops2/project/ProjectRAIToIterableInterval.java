@@ -39,10 +39,8 @@ import net.imglib2.RandomAccessibleInterval;
 import org.scijava.Priority;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
-import org.scijava.ops.function.Computers;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 @Plugin(type = Op.class, name = "project", priority = Priority.LOW)
 @Parameter(key = "input")

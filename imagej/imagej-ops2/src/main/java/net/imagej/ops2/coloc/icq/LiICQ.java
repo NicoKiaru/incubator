@@ -42,7 +42,6 @@ import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Functions;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * This algorithm calculates Li et al.'s ICQ (intensity correlation quotient).

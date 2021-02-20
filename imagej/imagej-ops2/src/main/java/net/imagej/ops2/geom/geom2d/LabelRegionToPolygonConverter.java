@@ -43,9 +43,9 @@ import org.scijava.convert.ConversionRequest;
 import org.scijava.convert.Converter;
 import org.scijava.ops.OpService;
 import org.scijava.ops.function.Functions;
-import org.scijava.types.Nil;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
+import org.scijava.types.Nil;
 
 /**
  * Converts a {@link LabelRegion} to a polygon

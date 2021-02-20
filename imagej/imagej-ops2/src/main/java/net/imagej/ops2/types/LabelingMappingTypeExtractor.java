@@ -37,10 +37,10 @@ import java.lang.reflect.Type;
 import net.imglib2.roi.labeling.LabelingMapping;
 
 import org.scijava.Priority;
-import org.scijava.types.TypeExtractor;
-import org.scijava.types.TypeService;
 import org.scijava.plugin.Parameter;
 import org.scijava.plugin.Plugin;
+import org.scijava.types.TypeExtractor;
+import org.scijava.types.TypeService;
 
 /**
  * {@link TypeExtractor} plugin which operates on {@link Iterable} objects.

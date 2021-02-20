@@ -37,9 +37,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import org.scijava.log.Logger;
-import org.scijava.ops.OpEnvironment;
-import org.scijava.ops.OpInfo;
 import org.scijava.ops.core.Op;
 import org.scijava.types.Types;
 

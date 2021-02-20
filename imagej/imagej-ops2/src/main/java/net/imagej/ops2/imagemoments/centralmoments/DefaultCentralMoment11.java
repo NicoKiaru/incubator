@@ -30,7 +30,6 @@
 package net.imagej.ops2.imagemoments.centralmoments;
 
 import net.imagej.ops2.imagemoments.AbstractImageMomentOp;
-import net.imglib2.IterableInterval;
 import net.imglib2.RandomAccessibleInterval;
 import net.imglib2.type.numeric.RealType;
 
@@ -39,7 +38,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * {@link Op} to calculate the {@code imageMoments.centralMoment11}.

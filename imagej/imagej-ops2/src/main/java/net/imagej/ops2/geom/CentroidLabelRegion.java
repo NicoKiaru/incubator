@@ -39,7 +39,6 @@ import net.imglib2.roi.labeling.LabelRegion;
 import org.scijava.ops.core.Op;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * This {@link Op} computes the centroid of a {@link IterableRegion} (Label).

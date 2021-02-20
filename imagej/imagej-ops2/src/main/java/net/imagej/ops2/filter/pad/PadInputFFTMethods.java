@@ -42,7 +42,6 @@ import org.scijava.ops.function.Functions;
 import org.scijava.ops.util.Adapt;
 import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Op used to pad the image to a size that is compatible with FFTMethods
