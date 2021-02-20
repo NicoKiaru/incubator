@@ -53,7 +53,7 @@ import org.scijava.plugin.Plugin;
 @Parameter(key = "inputNeighborhoodShape")
 @Parameter(key = "contrastThreshold")
 @Parameter(key = "halfMaxValue")
-@Parameter(key = "outOfBoundsFactory", required = false)
+@Parameter(key = "outOfBoundsFactory") // required = false
 @Parameter(key = "output")
 public class LocalBernsenThreshold<T extends RealType<T>> implements
 	Computers.Arity5<RandomAccessibleInterval<T>, Shape, Double, Double, OutOfBoundsFactory<T, RandomAccessibleInterval<T>>, //

@@ -21,15 +21,13 @@ public class FieldParameterMember<T> extends AnnotatedParameterMember<T>
 {
 
 	private final Field field;
-	private final Class<?> structType;
 	private final Struct struct;
 
-	public FieldParameterMember(final Field field, final Class<?> structType, Parameter parameterAnnotation)
+	public FieldParameterMember(final Field field, Class<?> structType, Parameter parameterAnnotation)
 		throws ValidityException
 	{
 		super(Types.fieldType(field, structType), parameterAnnotation);
 		this.field = field;
-		this.structType = structType;
 		struct = isStruct() ? ParameterStructs.structOf(getRawType()) : null;
 	}
 
@@ -60,38 +58,6 @@ public class FieldParameterMember<T> extends AnnotatedParameterMember<T>
 		}
 		catch (final IllegalAccessException exc) {
 			// FIXME
-		}
-	}
-
-	// -- ParameterItem methods --
-
-	@Override
-	public T getDefaultValue() {
-		// NB: The default value is the initial field value.
-		// E.g.:
-		//
-		//   @Parameter
-		//   private int weekdays = 5;
-		//
-		// To obtain this information, we need to instantiate the object, then
-		// extract the value of the associated field.
-		//
-		// Of course, the command might do evil things like:
-		//
-		//   @Parameter
-		//   private long time = System.currentTimeMillis();
-		//
-		// In which case the default value will vary by instance. But there is
-		// nothing we can really do about that. This is only a best effort.
-
-		try {
-			final Object dummy = structType.newInstance();
-			@SuppressWarnings("unchecked")
-			final T value = (T) getField().get(dummy);
-			return value;
-		}
-		catch (final InstantiationException | IllegalAccessException exc) {
-			throw new IllegalStateException("Missing no-args constructor", exc);
 		}
 	}
 

@@ -65,7 +65,7 @@ import org.scijava.plugin.Plugin;
 @Parameter(key = "input")
 @Parameter(key = "inputNeighborhoodShape")
 @Parameter(key = "c")
-@Parameter(key = "outOfBoundsFactory", required = false)
+@Parameter(key = "outOfBoundsFactory") // required = false
 @Parameter(key = "output")
 public class LocalMeanThreshold<T extends RealType<T>> extends
 	ApplyLocalThresholdIntegral<T, DoubleType> implements

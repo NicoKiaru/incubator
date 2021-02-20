@@ -60,7 +60,7 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "geom.contour")
 @Parameter(key = "input")
-@Parameter(key = "useJacobs", description = "Set this flag to use refined Jacobs stopping criteria")
+@Parameter(key = "useJacobs") // description = "Set this flag to use refined Jacobs stopping criteria"
 @Parameter(key = "contour")
 public class DefaultContour<B extends BooleanType<B>>
 		implements BiFunction<RandomAccessibleInterval<B>, Boolean, Polygon2D> {

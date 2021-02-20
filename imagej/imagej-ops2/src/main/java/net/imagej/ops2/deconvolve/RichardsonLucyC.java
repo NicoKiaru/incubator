@@ -72,7 +72,7 @@ import org.scijava.plugin.Plugin;
 @Parameter(key = "complexType")
 @Parameter(key = "maxIterations")
 @Parameter(key = "accelerator")
-@Parameter(key = "updateOp", description = "by default, this should be RichardsonLucyUpdate")
+@Parameter(key = "updateOp") // description = "by default, this should be RichardsonLucyUpdate"
 @Parameter(key = "raiExtendedEstimate")
 @Parameter(key = "iterativePostProcessingOps")
 @Parameter(key = "executorService")

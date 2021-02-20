@@ -168,7 +168,7 @@ public class DefaultOpMatcher extends AbstractService implements OpMatcher {
 		for (final OpCandidate candidate : candidates) {
 			if (!isValid(candidate))
 				continue;
-			final Type[] args = candidate.paddedArgs();
+			final Type[] args = candidate.getRef().getArgs();
 			if (args == null)
 				continue;
 			if (missArgs(candidate, args))
@@ -217,7 +217,7 @@ public class DefaultOpMatcher extends AbstractService implements OpMatcher {
 	private boolean missArgs(final OpCandidate candidate, final Type[] paddedArgs) {
 		int i = 0;
 		for (final Member<?> member : OpUtils.inputs(candidate)) {
-			if (paddedArgs[i++] == null && OpUtils.isRequired(member)) {
+			if (paddedArgs[i++] == null) {
 				candidate.setStatus(StatusCode.REQUIRED_ARG_IS_NULL, null, member);
 				return true;
 			}
@@ -231,7 +231,7 @@ public class DefaultOpMatcher extends AbstractService implements OpMatcher {
 	 */
 	private boolean typesPerfectMatch(final OpCandidate candidate) {
 		int i = 0;
-		Type[] paddedArgs = candidate.paddedArgs();
+		Type[] paddedArgs = candidate.getRef().getArgs();
 		for (final Type t : OpUtils.inputTypes(candidate)) {
 			if (paddedArgs[i] != null) {
 				if (!t.equals(paddedArgs[i]))
@@ -278,7 +278,7 @@ public class DefaultOpMatcher extends AbstractService implements OpMatcher {
 	private boolean inputsMatch(final OpCandidate candidate, HashMap<TypeVariable<?>, TypeVarInfo> typeBounds) {
 		if (checkCandidates(Collections.singletonList(candidate)).isEmpty())
 			return false;
-		final Type[] refArgTypes = candidate.paddedArgs();
+		final Type[] refArgTypes = candidate.getRef().getArgs();
 		final Type refType = candidate.getRef().getType();
 		final Type infoType = candidate.opInfo().opType();
 		Type[] candidateArgTypes = OpUtils.inputTypes(candidate);

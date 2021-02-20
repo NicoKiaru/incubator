@@ -58,7 +58,7 @@ import org.scijava.plugin.Plugin;
 @Parameter(key = "inputNeighborhoodShape")
 @Parameter(key = "c")
 @Parameter(key = "k")
-@Parameter(key = "outOfBoundsFactory", required = false)
+@Parameter(key = "outOfBoundsFactory") // required = false
 @Parameter(key = "output")
 public class LocalNiblackThreshold<T extends RealType<T>> extends
 	ApplyLocalThresholdIntegral<T, DoubleType> implements

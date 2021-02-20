@@ -51,7 +51,7 @@ import org.scijava.plugin.Plugin;
 @Parameter(key = "input")
 @Parameter(key = "inputNeighborhoodShape")
 @Parameter(key = "c")
-@Parameter(key = "outOfBoundsFactory", required = false)
+@Parameter(key = "outOfBoundsFactory") // required = false
 @Parameter(key = "output")
 public class LocalMedianThreshold<T extends RealType<T>> implements
 	Computers.Arity4<RandomAccessibleInterval<T>, Shape, Double, OutOfBoundsFactory<T, RandomAccessibleInterval<T>>, //

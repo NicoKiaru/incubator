@@ -50,7 +50,7 @@ import org.scijava.plugin.Plugin;
 @Plugin(type = Op.class, name = "threshold.localContrast")
 @Parameter(key = "input")
 @Parameter(key = "inputNeighborhoodShape")
-@Parameter(key = "outOfBoundsFactory", required = false)
+@Parameter(key = "outOfBoundsFactory") // required = false
 @Parameter(key = "output")
 public class LocalContrastThreshold<T extends RealType<T>> implements
 	Computers.Arity3<RandomAccessibleInterval<T>, Shape, OutOfBoundsFactory<T, RandomAccessibleInterval<T>>, //

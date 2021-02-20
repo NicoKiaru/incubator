@@ -48,7 +48,7 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "image.histogram")
 @Parameter(key = "iterable")
-@Parameter(key = "numBins", required = false)
+@Parameter(key = "numBins") // required = false
 @Parameter(key = "histogram")
 public class HistogramCreate<T extends RealType<T>> implements BiFunction<Iterable<T>, Integer, Histogram1d<T>> {
 

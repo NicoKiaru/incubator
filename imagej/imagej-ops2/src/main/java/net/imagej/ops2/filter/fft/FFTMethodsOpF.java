@@ -57,9 +57,9 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "filter.fft", priority = Priority.HIGH)
 @Parameter(key = "input")
-@Parameter(key = "borderSize", description = "the size of border to apply in each dimension")
-@Parameter(key = "fast", description = "whether to perform a fast FFT; default true")
-@Parameter(key = "fftType", description = "the complex type of the output")
+@Parameter(key = "borderSize") // description = "the size of border to apply in each dimension"
+@Parameter(key = "fast") // description = "whether to perform a fast FFT; default true"
+@Parameter(key = "fftType") // description = "the complex type of the output"
 @Parameter(key = "executorService")
 @Parameter(key = "output")
 public class FFTMethodsOpF<T extends RealType<T>, C extends ComplexType<C>> implements

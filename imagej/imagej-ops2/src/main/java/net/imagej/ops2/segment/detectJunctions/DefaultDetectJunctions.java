@@ -62,7 +62,7 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "segment.detectJunctions")
 @Parameter(key = "lines")
-@Parameter(key = "threshold", description = "Maximum distance between polylines to be considered a junction")
+@Parameter(key = "threshold") // description = "Maximum distance between polylines to be considered a junction"
 @Parameter(key = "junctions")
 public class DefaultDetectJunctions implements BiFunction<List<? extends WritablePolyline>, Double, List<RealPoint>> {
 

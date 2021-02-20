@@ -74,9 +74,9 @@ import org.scijava.plugin.Plugin;
 @Parameter(key = "obfKernel")
 @Parameter(key = "outType")
 @Parameter(key = "fftType")
-@Parameter(key = "maxIterations", description = "max number of iterations")
-@Parameter(key = "nonCirculant", description = "indicates whether to use non-circulant edge handling")
-@Parameter(key = "accelerate", description = "indicates whether or not to use acceleration")
+@Parameter(key = "maxIterations") // description = "max number of iterations"
+@Parameter(key = "nonCirculant") // description = "indicates whether to use non-circulant edge handling"
+@Parameter(key = "accelerate") // description = "indicates whether or not to use acceleration"
 @Parameter(key = "regularizationFactor")
 @Parameter(key = "executorService")
 @Parameter(key = "output")

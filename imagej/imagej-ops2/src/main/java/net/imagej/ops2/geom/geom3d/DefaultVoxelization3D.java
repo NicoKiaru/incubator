@@ -63,9 +63,9 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "geom.voxelization")
 @Parameter(key = "input")
-@Parameter(key = "width", required = false)
-@Parameter(key = "height", required = false)
-@Parameter(key = "depth", required = false)
+@Parameter(key = "width") // required = false
+@Parameter(key = "height") // required = false
+@Parameter(key = "depth") // required = false
 @Parameter(key = "voxelizedImage")
 public class DefaultVoxelization3D
 		implements Functions.Arity4<Mesh, Integer, Integer, Integer, RandomAccessibleInterval<BitType>> {

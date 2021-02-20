@@ -56,9 +56,9 @@ import org.scijava.plugin.Plugin;
 	priority = Priority.LOW)
 @Parameter(key = "input")
 @Parameter(key = "inputNeighborhoodShape")
-@Parameter(key = "k", required = false)
-@Parameter(key = "r", required = false)
-@Parameter(key = "outOfBoundsFactory", required = false)
+@Parameter(key = "k") // required = false
+@Parameter(key = "r") // required = false
+@Parameter(key = "outOfBoundsFactory") // required = false
 @Parameter(key = "output")
 public class LocalPhansalkarThreshold<T extends RealType<T>> extends
 	ApplyLocalThresholdIntegral<T, DoubleType> implements

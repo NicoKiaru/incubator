@@ -531,7 +531,7 @@ public final class ParameterStructs {
 			if (!valid) continue;
 			
 			try {
-				final ParameterMember<?> item = //
+				final Member<?> item = //
 						new FunctionalParameterMember<>(itemType, annotations[i]);
 				names.add(key);
 				items.add(item);
@@ -632,8 +632,7 @@ public final class ParameterStructs {
 	{
 		boolean valid = true;
 
-		final boolean isMessage = param.visibility() == ItemVisibility.MESSAGE;
-		if (isFinal && !isMessage) {
+		if (isFinal) {
 			// NB: Final parameters are bad because they cannot be modified.
 			final String error = "Invalid final parameter: " + name;
 			problems.add(new ValidityProblem(error));

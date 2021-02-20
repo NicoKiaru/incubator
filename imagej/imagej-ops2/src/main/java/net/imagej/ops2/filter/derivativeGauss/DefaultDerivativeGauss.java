@@ -55,8 +55,8 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "filter.derivativeGauss")
 @Parameter(key = "input")
-@Parameter(key = "sigma", description = "the sigma in each dimension of the gaussian")
-@Parameter(key = "derivatives", description = "the value at each index indicates the derivative to take in each dimension of the image.")
+@Parameter(key = "sigma") // description = "the sigma in each dimension of the gaussian"
+@Parameter(key = "derivatives") // description = "the value at each index indicates the derivative to take in each dimension of the image."
 @Parameter(key = "output")
 public class DefaultDerivativeGauss<T extends RealType<T>>
 		implements Computers.Arity3<RandomAccessibleInterval<T>, double[], int[], RandomAccessibleInterval<DoubleType>> {

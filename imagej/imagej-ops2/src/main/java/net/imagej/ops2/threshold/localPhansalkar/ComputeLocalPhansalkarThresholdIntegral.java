@@ -65,8 +65,8 @@ import org.scijava.plugin.Plugin;
 	priority = Priority.LOW - 1)
 @Parameter(key = "inputNeighborhood")
 @Parameter(key = "inputCenterPixel")
-@Parameter(key = "k", required = false)
-@Parameter(key = "r", required = false)
+@Parameter(key = "k") // required = false
+@Parameter(key = "r") // required = false
 @Parameter(key = "output")
 public class ComputeLocalPhansalkarThresholdIntegral<T extends RealType<T>>
 	implements

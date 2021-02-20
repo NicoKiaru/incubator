@@ -41,7 +41,6 @@ import org.scijava.ops.matcher.OpCandidate;
 import org.scijava.ops.matcher.OpCandidate.StatusCode;
 import org.scijava.ops.matcher.OpMatcher;
 import org.scijava.ops.matcher.OpRef;
-import org.scijava.param.ParameterMember;
 import org.scijava.param.ParameterStructs;
 import org.scijava.param.ValidityException;
 import org.scijava.param.ValidityProblem;
@@ -181,69 +180,6 @@ public final class OpUtils {
 		return candidate.priority();
 	}
 
-	public static Type[] padTypes(final OpCandidate candidate, Type[] types) {
-		final Object[] padded = padArgs(candidate, false, (Object[]) types);
-		return Arrays.copyOf(padded, padded.length, Type[].class);
-	}
-	
-	public static Object[] padArgs(final OpCandidate candidate, final boolean secondary, Object... args) {
-		List<Member<?>> members;
-		String argName;
-		if (secondary) {
-			members = OpUtils.injectableMembers(candidate.struct());
-			argName = "secondary args";
-		} else {
-			members = OpUtils.inputs(candidate.struct());
-			argName = "args";
-		}
-		
-		int inputCount = 0, requiredCount = 0;
-		for (final Member<?> item : members) {
-			inputCount++;
-			if (isRequired(item))
-				requiredCount++;
-		}
-		if (args.length == inputCount) {
-			// correct number of arguments
-			return args;
-		}
-		if (args.length > inputCount) {
-			// too many arguments
-			candidate.setStatus(StatusCode.TOO_MANY_ARGS,
-					"\nNumber of " + argName + " given: " + args.length + "  >  " + 
-					"Number of " + argName + " of op: " + inputCount);
-			return null;
-		}
-		if (args.length < requiredCount) {
-			// too few arguments
-			candidate.setStatus(StatusCode.TOO_FEW_ARGS,
-					"\nNumber of " + argName + " given: " + args.length + "  <  " + 
-					"Number of required " + argName + " of op: " + requiredCount);
-			return null;
-		}
-
-		// pad optional parameters with null (from right to left)
-		final int argsToPad = inputCount - args.length;
-		final int optionalCount = inputCount - requiredCount;
-		final int optionalsToFill = optionalCount - argsToPad;
-		final Object[] paddedArgs = new Object[inputCount];
-		int argIndex = 0, paddedIndex = 0, optionalIndex = 0;
-		for (final Member<?> item : members) {
-			if (!isRequired(item) && optionalIndex++ >= optionalsToFill) {
-				// skip this optional parameter (pad with null)
-				paddedIndex++;
-				continue;
-			}
-			paddedArgs[paddedIndex++] = args[argIndex++];
-		}
-		return paddedArgs;
-	}
-	
-	public static boolean isRequired(final Member<?> item) {
-		return item instanceof ParameterMember && //
-				((ParameterMember<?>) item).isRequired();
-	}
-	
 	public static List<Member<?>> injectableMembers(Struct struct) {
 		return struct.members()
 				.stream()

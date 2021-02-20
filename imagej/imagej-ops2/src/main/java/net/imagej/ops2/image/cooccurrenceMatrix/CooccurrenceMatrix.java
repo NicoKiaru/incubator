@@ -22,8 +22,8 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "image.cooccurrenceMatrix")
 @Parameter(key = "iterableInput")
-@Parameter(key = "nrGreyLevels", min = "0", max = "128", stepSize = "1", initializer = "32")
-@Parameter(key = "distance", min = "0", max = "128", stepSize = "1", initializer = "1")
+@Parameter(key = "nrGreyLevels") // min = 0, max = 128, initial = 32
+@Parameter(key = "distance") // min = 0, max = 128, initial = 1
 @Parameter(key = "matrixOrientation")
 @Parameter(key = "cooccurrenceMatrix")
 public class CooccurrenceMatrix<T extends RealType<T>>

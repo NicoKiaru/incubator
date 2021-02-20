@@ -37,7 +37,6 @@ import java.util.Map;
 import org.scijava.log.Logger;
 import org.scijava.ops.OpEnvironment;
 import org.scijava.ops.OpInfo;
-import org.scijava.ops.OpUtils;
 import org.scijava.param.ValidityProblem;
 import org.scijava.struct.Member;
 import org.scijava.struct.Struct;
@@ -75,10 +74,6 @@ public class OpCandidate {
 	private String message;
 	private Member<?> statusItem;
 
-	/** (Null-)Padded arguments of the op if the op has not required parameters.
-	 * If the op does not, this will be the same as {@link #ref}.getArgs(). */
-	private final Type[] paddedArgs;
-
 	public OpCandidate(final OpEnvironment env, final Logger log, final OpRef ref, final OpInfo info,
 		final Map<TypeVariable<?>, Type> typeVarAssigns)
 	{
@@ -87,8 +82,6 @@ public class OpCandidate {
 		this.ref = ref;
 		this.info = info;
 		this.typeVarAssigns = typeVarAssigns;
-
-		this.paddedArgs = OpUtils.padTypes(this, getRef().getArgs());
 	}
 
 	/** Gets the op execution environment of the desired match. */
@@ -114,10 +107,6 @@ public class OpCandidate {
 	/** Gets the mapping between {@link TypeVariable}s and {@link Type}s that makes the {@link OpCandidate} pair legal. */
 	public Map<TypeVariable<?>, Type> typeVarAssigns() {
 		return typeVarAssigns;
-	}
-
-	public Type[] paddedArgs() {
-		return paddedArgs;
 	}
 
 	/**

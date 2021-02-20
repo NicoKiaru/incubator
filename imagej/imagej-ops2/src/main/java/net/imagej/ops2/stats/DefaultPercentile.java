@@ -50,7 +50,7 @@ import org.scijava.plugin.Plugin;
  */
 @Plugin(type = Op.class, name = "stats.percentile")
 @Parameter(key = "iterableInput")
-@Parameter(key = "percent", min="0", max="100")
+@Parameter(key = "percent") // min=0, max=100
 @Parameter(key = "percentile")
 public class DefaultPercentile<I extends RealType<I>, O extends RealType<O>>
 		implements Computers.Arity2<Iterable<I>, Double, O> {
