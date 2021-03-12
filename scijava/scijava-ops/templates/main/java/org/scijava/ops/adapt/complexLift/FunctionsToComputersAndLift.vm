@@ -56,8 +56,6 @@ public class FunctionsToComputersAndLift {
 #foreach($arity in [1..$maxArity])
 
 	@Plugin(type = Op.class, name = "adapt", priority = Priority.LOW)
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	public static class Function${arity}ToComputer${arity}AndLiftAfter$generics.call($arity) implements
 		Function<$functionArity.call($arity)$generics.call($arity), $computerArity.call($arity)$iterableGenerics.call($arity)>
 	{
@@ -67,6 +65,10 @@ public class FunctionsToComputersAndLift {
 		@OpDependency(name = "adapt", adaptable = false)
 		Function<$computerArity.call($arity)$generics.call($arity), $computerArity.call($arity)$iterableGenerics.call($arity)> lifter;
 
+		/**
+		 * @param function - the Function to convert
+		 * @return the function as a Computer
+		 */
 		@Override
 		public $computerArity.call($arity)$iterableGenerics.call($arity) apply(
 			$functionArity.call($arity)$generics.call($arity) function)
