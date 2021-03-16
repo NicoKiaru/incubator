@@ -57,8 +57,6 @@ import org.scijava.plugin.Plugin;
 public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO> {
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace1ToFunction1<IO> implements Function<Inplaces.Arity1<IO>, Function<IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -78,8 +76,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace2_1ToFunction2<IO, I2> implements Function<Inplaces.Arity2_1<IO, I2>, BiFunction<IO, I2, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -99,8 +95,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace2_2ToFunction2<I1, IO> implements Function<Inplaces.Arity2_2<I1, IO>, BiFunction<I1, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -120,8 +114,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace3_1ToFunction3<IO, I2, I3> implements Function<Inplaces.Arity3_1<IO, I2, I3>, Functions.Arity3<IO, I2, I3, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -141,8 +133,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace3_2ToFunction3<I1, IO, I3> implements Function<Inplaces.Arity3_2<I1, IO, I3>, Functions.Arity3<I1, IO, I3, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -162,8 +152,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace3_3ToFunction3<I1, I2, IO> implements Function<Inplaces.Arity3_3<I1, I2, IO>, Functions.Arity3<I1, I2, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -183,8 +171,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace4_1ToFunction4<IO, I2, I3, I4> implements Function<Inplaces.Arity4_1<IO, I2, I3, I4>, Functions.Arity4<IO, I2, I3, I4, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -204,8 +190,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace4_2ToFunction4<I1, IO, I3, I4> implements Function<Inplaces.Arity4_2<I1, IO, I3, I4>, Functions.Arity4<I1, IO, I3, I4, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -225,8 +209,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace4_3ToFunction4<I1, I2, IO, I4> implements Function<Inplaces.Arity4_3<I1, I2, IO, I4>, Functions.Arity4<I1, I2, IO, I4, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -246,8 +228,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace4_4ToFunction4<I1, I2, I3, IO> implements Function<Inplaces.Arity4_4<I1, I2, I3, IO>, Functions.Arity4<I1, I2, I3, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -267,8 +247,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace5_1ToFunction5<IO, I2, I3, I4, I5> implements Function<Inplaces.Arity5_1<IO, I2, I3, I4, I5>, Functions.Arity5<IO, I2, I3, I4, I5, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -288,8 +266,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace5_2ToFunction5<I1, IO, I3, I4, I5> implements Function<Inplaces.Arity5_2<I1, IO, I3, I4, I5>, Functions.Arity5<I1, IO, I3, I4, I5, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -309,8 +285,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace5_3ToFunction5<I1, I2, IO, I4, I5> implements Function<Inplaces.Arity5_3<I1, I2, IO, I4, I5>, Functions.Arity5<I1, I2, IO, I4, I5, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -330,8 +304,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace5_4ToFunction5<I1, I2, I3, IO, I5> implements Function<Inplaces.Arity5_4<I1, I2, I3, IO, I5>, Functions.Arity5<I1, I2, I3, IO, I5, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -351,8 +323,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace5_5ToFunction5<I1, I2, I3, I4, IO> implements Function<Inplaces.Arity5_5<I1, I2, I3, I4, IO>, Functions.Arity5<I1, I2, I3, I4, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -372,8 +342,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace6_1ToFunction6<IO, I2, I3, I4, I5, I6> implements Function<Inplaces.Arity6_1<IO, I2, I3, I4, I5, I6>, Functions.Arity6<IO, I2, I3, I4, I5, I6, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -393,8 +361,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace6_2ToFunction6<I1, IO, I3, I4, I5, I6> implements Function<Inplaces.Arity6_2<I1, IO, I3, I4, I5, I6>, Functions.Arity6<I1, IO, I3, I4, I5, I6, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -414,8 +380,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace6_3ToFunction6<I1, I2, IO, I4, I5, I6> implements Function<Inplaces.Arity6_3<I1, I2, IO, I4, I5, I6>, Functions.Arity6<I1, I2, IO, I4, I5, I6, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -435,8 +399,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace6_4ToFunction6<I1, I2, I3, IO, I5, I6> implements Function<Inplaces.Arity6_4<I1, I2, I3, IO, I5, I6>, Functions.Arity6<I1, I2, I3, IO, I5, I6, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -456,8 +418,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace6_5ToFunction6<I1, I2, I3, I4, IO, I6> implements Function<Inplaces.Arity6_5<I1, I2, I3, I4, IO, I6>, Functions.Arity6<I1, I2, I3, I4, IO, I6, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -477,8 +437,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace6_6ToFunction6<I1, I2, I3, I4, I5, IO> implements Function<Inplaces.Arity6_6<I1, I2, I3, I4, I5, IO>, Functions.Arity6<I1, I2, I3, I4, I5, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -498,8 +456,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace7_1ToFunction7<IO, I2, I3, I4, I5, I6, I7> implements Function<Inplaces.Arity7_1<IO, I2, I3, I4, I5, I6, I7>, Functions.Arity7<IO, I2, I3, I4, I5, I6, I7, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -519,8 +475,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace7_2ToFunction7<I1, IO, I3, I4, I5, I6, I7> implements Function<Inplaces.Arity7_2<I1, IO, I3, I4, I5, I6, I7>, Functions.Arity7<I1, IO, I3, I4, I5, I6, I7, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -540,8 +494,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace7_3ToFunction7<I1, I2, IO, I4, I5, I6, I7> implements Function<Inplaces.Arity7_3<I1, I2, IO, I4, I5, I6, I7>, Functions.Arity7<I1, I2, IO, I4, I5, I6, I7, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -561,8 +513,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace7_4ToFunction7<I1, I2, I3, IO, I5, I6, I7> implements Function<Inplaces.Arity7_4<I1, I2, I3, IO, I5, I6, I7>, Functions.Arity7<I1, I2, I3, IO, I5, I6, I7, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -582,8 +532,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace7_5ToFunction7<I1, I2, I3, I4, IO, I6, I7> implements Function<Inplaces.Arity7_5<I1, I2, I3, I4, IO, I6, I7>, Functions.Arity7<I1, I2, I3, I4, IO, I6, I7, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -603,8 +551,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace7_6ToFunction7<I1, I2, I3, I4, I5, IO, I7> implements Function<Inplaces.Arity7_6<I1, I2, I3, I4, I5, IO, I7>, Functions.Arity7<I1, I2, I3, I4, I5, IO, I7, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -624,8 +570,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace7_7ToFunction7<I1, I2, I3, I4, I5, I6, IO> implements Function<Inplaces.Arity7_7<I1, I2, I3, I4, I5, I6, IO>, Functions.Arity7<I1, I2, I3, I4, I5, I6, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -645,8 +589,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_1ToFunction8<IO, I2, I3, I4, I5, I6, I7, I8> implements Function<Inplaces.Arity8_1<IO, I2, I3, I4, I5, I6, I7, I8>, Functions.Arity8<IO, I2, I3, I4, I5, I6, I7, I8, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -666,8 +608,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_2ToFunction8<I1, IO, I3, I4, I5, I6, I7, I8> implements Function<Inplaces.Arity8_2<I1, IO, I3, I4, I5, I6, I7, I8>, Functions.Arity8<I1, IO, I3, I4, I5, I6, I7, I8, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -687,8 +627,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_3ToFunction8<I1, I2, IO, I4, I5, I6, I7, I8> implements Function<Inplaces.Arity8_3<I1, I2, IO, I4, I5, I6, I7, I8>, Functions.Arity8<I1, I2, IO, I4, I5, I6, I7, I8, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -708,8 +646,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_4ToFunction8<I1, I2, I3, IO, I5, I6, I7, I8> implements Function<Inplaces.Arity8_4<I1, I2, I3, IO, I5, I6, I7, I8>, Functions.Arity8<I1, I2, I3, IO, I5, I6, I7, I8, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -729,8 +665,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_5ToFunction8<I1, I2, I3, I4, IO, I6, I7, I8> implements Function<Inplaces.Arity8_5<I1, I2, I3, I4, IO, I6, I7, I8>, Functions.Arity8<I1, I2, I3, I4, IO, I6, I7, I8, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -750,8 +684,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_6ToFunction8<I1, I2, I3, I4, I5, IO, I7, I8> implements Function<Inplaces.Arity8_6<I1, I2, I3, I4, I5, IO, I7, I8>, Functions.Arity8<I1, I2, I3, I4, I5, IO, I7, I8, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -771,8 +703,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_7ToFunction8<I1, I2, I3, I4, I5, I6, IO, I8> implements Function<Inplaces.Arity8_7<I1, I2, I3, I4, I5, I6, IO, I8>, Functions.Arity8<I1, I2, I3, I4, I5, I6, IO, I8, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -792,8 +722,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace8_8ToFunction8<I1, I2, I3, I4, I5, I6, I7, IO> implements Function<Inplaces.Arity8_8<I1, I2, I3, I4, I5, I6, I7, IO>, Functions.Arity8<I1, I2, I3, I4, I5, I6, I7, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -813,8 +741,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_1ToFunction9<IO, I2, I3, I4, I5, I6, I7, I8, I9> implements Function<Inplaces.Arity9_1<IO, I2, I3, I4, I5, I6, I7, I8, I9>, Functions.Arity9<IO, I2, I3, I4, I5, I6, I7, I8, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -834,8 +760,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_2ToFunction9<I1, IO, I3, I4, I5, I6, I7, I8, I9> implements Function<Inplaces.Arity9_2<I1, IO, I3, I4, I5, I6, I7, I8, I9>, Functions.Arity9<I1, IO, I3, I4, I5, I6, I7, I8, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -855,8 +779,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_3ToFunction9<I1, I2, IO, I4, I5, I6, I7, I8, I9> implements Function<Inplaces.Arity9_3<I1, I2, IO, I4, I5, I6, I7, I8, I9>, Functions.Arity9<I1, I2, IO, I4, I5, I6, I7, I8, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -876,8 +798,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_4ToFunction9<I1, I2, I3, IO, I5, I6, I7, I8, I9> implements Function<Inplaces.Arity9_4<I1, I2, I3, IO, I5, I6, I7, I8, I9>, Functions.Arity9<I1, I2, I3, IO, I5, I6, I7, I8, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -897,8 +817,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_5ToFunction9<I1, I2, I3, I4, IO, I6, I7, I8, I9> implements Function<Inplaces.Arity9_5<I1, I2, I3, I4, IO, I6, I7, I8, I9>, Functions.Arity9<I1, I2, I3, I4, IO, I6, I7, I8, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -918,8 +836,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_6ToFunction9<I1, I2, I3, I4, I5, IO, I7, I8, I9> implements Function<Inplaces.Arity9_6<I1, I2, I3, I4, I5, IO, I7, I8, I9>, Functions.Arity9<I1, I2, I3, I4, I5, IO, I7, I8, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -939,8 +855,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_7ToFunction9<I1, I2, I3, I4, I5, I6, IO, I8, I9> implements Function<Inplaces.Arity9_7<I1, I2, I3, I4, I5, I6, IO, I8, I9>, Functions.Arity9<I1, I2, I3, I4, I5, I6, IO, I8, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -960,8 +874,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_8ToFunction9<I1, I2, I3, I4, I5, I6, I7, IO, I9> implements Function<Inplaces.Arity9_8<I1, I2, I3, I4, I5, I6, I7, IO, I9>, Functions.Arity9<I1, I2, I3, I4, I5, I6, I7, IO, I9, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -981,8 +893,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace9_9ToFunction9<I1, I2, I3, I4, I5, I6, I7, I8, IO> implements Function<Inplaces.Arity9_9<I1, I2, I3, I4, I5, I6, I7, I8, IO>, Functions.Arity9<I1, I2, I3, I4, I5, I6, I7, I8, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1002,8 +912,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_1ToFunction10<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10> implements Function<Inplaces.Arity10_1<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10>, Functions.Arity10<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1023,8 +931,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_2ToFunction10<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10> implements Function<Inplaces.Arity10_2<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10>, Functions.Arity10<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1044,8 +950,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_3ToFunction10<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10> implements Function<Inplaces.Arity10_3<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10>, Functions.Arity10<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1065,8 +969,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_4ToFunction10<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10> implements Function<Inplaces.Arity10_4<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10>, Functions.Arity10<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1086,8 +988,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_5ToFunction10<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10> implements Function<Inplaces.Arity10_5<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10>, Functions.Arity10<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1107,8 +1007,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_6ToFunction10<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10> implements Function<Inplaces.Arity10_6<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10>, Functions.Arity10<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1128,8 +1026,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_7ToFunction10<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10> implements Function<Inplaces.Arity10_7<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10>, Functions.Arity10<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1149,8 +1045,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_8ToFunction10<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10> implements Function<Inplaces.Arity10_8<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10>, Functions.Arity10<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1170,8 +1064,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_9ToFunction10<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10> implements Function<Inplaces.Arity10_9<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10>, Functions.Arity10<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1191,8 +1083,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace10_10ToFunction10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO> implements Function<Inplaces.Arity10_10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO>, Functions.Arity10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1212,8 +1102,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_1ToFunction11<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11> implements Function<Inplaces.Arity11_1<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11>, Functions.Arity11<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1233,8 +1121,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_2ToFunction11<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11> implements Function<Inplaces.Arity11_2<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11>, Functions.Arity11<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1254,8 +1140,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_3ToFunction11<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11> implements Function<Inplaces.Arity11_3<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11>, Functions.Arity11<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1275,8 +1159,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_4ToFunction11<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11> implements Function<Inplaces.Arity11_4<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11>, Functions.Arity11<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1296,8 +1178,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_5ToFunction11<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11> implements Function<Inplaces.Arity11_5<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11>, Functions.Arity11<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1317,8 +1197,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_6ToFunction11<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11> implements Function<Inplaces.Arity11_6<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11>, Functions.Arity11<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1338,8 +1216,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_7ToFunction11<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11> implements Function<Inplaces.Arity11_7<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11>, Functions.Arity11<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1359,8 +1235,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_8ToFunction11<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11> implements Function<Inplaces.Arity11_8<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11>, Functions.Arity11<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1380,8 +1254,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_9ToFunction11<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11> implements Function<Inplaces.Arity11_9<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11>, Functions.Arity11<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1401,8 +1273,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_10ToFunction11<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11> implements Function<Inplaces.Arity11_10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11>, Functions.Arity11<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1422,8 +1292,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace11_11ToFunction11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO> implements Function<Inplaces.Arity11_11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO>, Functions.Arity11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1443,8 +1311,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_1ToFunction12<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12> implements Function<Inplaces.Arity12_1<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12>, Functions.Arity12<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1464,8 +1330,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_2ToFunction12<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12> implements Function<Inplaces.Arity12_2<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12>, Functions.Arity12<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1485,8 +1349,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_3ToFunction12<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12> implements Function<Inplaces.Arity12_3<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12>, Functions.Arity12<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1506,8 +1368,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_4ToFunction12<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12> implements Function<Inplaces.Arity12_4<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12>, Functions.Arity12<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1527,8 +1387,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_5ToFunction12<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12> implements Function<Inplaces.Arity12_5<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12>, Functions.Arity12<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1548,8 +1406,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_6ToFunction12<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12> implements Function<Inplaces.Arity12_6<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12>, Functions.Arity12<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1569,8 +1425,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_7ToFunction12<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12> implements Function<Inplaces.Arity12_7<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12>, Functions.Arity12<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1590,8 +1444,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_8ToFunction12<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12> implements Function<Inplaces.Arity12_8<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12>, Functions.Arity12<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1611,8 +1463,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_9ToFunction12<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12> implements Function<Inplaces.Arity12_9<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12>, Functions.Arity12<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1632,8 +1482,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_10ToFunction12<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12> implements Function<Inplaces.Arity12_10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12>, Functions.Arity12<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1653,8 +1501,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_11ToFunction12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12> implements Function<Inplaces.Arity12_11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12>, Functions.Arity12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1674,8 +1520,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace12_12ToFunction12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO> implements Function<Inplaces.Arity12_12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO>, Functions.Arity12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1695,8 +1539,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_1ToFunction13<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_1<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13>, Functions.Arity13<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1716,8 +1558,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_2ToFunction13<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_2<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13>, Functions.Arity13<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1737,8 +1577,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_3ToFunction13<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_3<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13>, Functions.Arity13<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1758,8 +1596,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_4ToFunction13<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_4<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13>, Functions.Arity13<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1779,8 +1615,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_5ToFunction13<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_5<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13>, Functions.Arity13<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1800,8 +1634,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_6ToFunction13<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_6<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13>, Functions.Arity13<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1821,8 +1653,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_7ToFunction13<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_7<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13>, Functions.Arity13<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1842,8 +1672,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_8ToFunction13<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13> implements Function<Inplaces.Arity13_8<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13>, Functions.Arity13<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1863,8 +1691,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_9ToFunction13<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13> implements Function<Inplaces.Arity13_9<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13>, Functions.Arity13<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1884,8 +1710,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_10ToFunction13<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13> implements Function<Inplaces.Arity13_10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13>, Functions.Arity13<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1905,8 +1729,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_11ToFunction13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13> implements Function<Inplaces.Arity13_11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13>, Functions.Arity13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1926,8 +1748,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_12ToFunction13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13> implements Function<Inplaces.Arity13_12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13>, Functions.Arity13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1947,8 +1767,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace13_13ToFunction13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO> implements Function<Inplaces.Arity13_13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO>, Functions.Arity13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1968,8 +1786,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_1ToFunction14<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_1<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14>, Functions.Arity14<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -1989,8 +1805,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_2ToFunction14<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_2<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14>, Functions.Arity14<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2010,8 +1824,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_3ToFunction14<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_3<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14>, Functions.Arity14<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2031,8 +1843,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_4ToFunction14<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_4<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14>, Functions.Arity14<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2052,8 +1862,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_5ToFunction14<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_5<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14>, Functions.Arity14<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2073,8 +1881,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_6ToFunction14<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_6<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14>, Functions.Arity14<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2094,8 +1900,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_7ToFunction14<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_7<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14>, Functions.Arity14<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2115,8 +1919,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_8ToFunction14<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_8<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14>, Functions.Arity14<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2136,8 +1938,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_9ToFunction14<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14> implements Function<Inplaces.Arity14_9<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14>, Functions.Arity14<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2157,8 +1957,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_10ToFunction14<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14> implements Function<Inplaces.Arity14_10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14>, Functions.Arity14<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2178,8 +1976,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_11ToFunction14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14> implements Function<Inplaces.Arity14_11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14>, Functions.Arity14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2199,8 +1995,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_12ToFunction14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14> implements Function<Inplaces.Arity14_12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14>, Functions.Arity14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2220,8 +2014,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_13ToFunction14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14> implements Function<Inplaces.Arity14_13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14>, Functions.Arity14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2241,8 +2033,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace14_14ToFunction14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO> implements Function<Inplaces.Arity14_14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO>, Functions.Arity14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2262,8 +2052,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_1ToFunction15<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_1<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2283,8 +2071,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_2ToFunction15<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_2<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2304,8 +2090,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_3ToFunction15<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_3<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2325,8 +2109,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_4ToFunction15<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_4<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2346,8 +2128,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_5ToFunction15<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_5<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2367,8 +2147,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_6ToFunction15<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_6<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2388,8 +2166,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_7ToFunction15<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_7<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2409,8 +2185,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_8ToFunction15<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_8<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2430,8 +2204,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_9ToFunction15<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_9<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2451,8 +2223,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_10ToFunction15<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14, I15> implements Function<Inplaces.Arity15_10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2472,8 +2242,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_11ToFunction15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14, I15> implements Function<Inplaces.Arity15_11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2493,8 +2261,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_12ToFunction15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14, I15> implements Function<Inplaces.Arity15_12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2514,8 +2280,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_13ToFunction15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14, I15> implements Function<Inplaces.Arity15_13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2535,8 +2299,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_14ToFunction15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO, I15> implements Function<Inplaces.Arity15_14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO, I15>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO, I15, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2556,8 +2318,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace15_15ToFunction15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO> implements Function<Inplaces.Arity15_15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO>, Functions.Arity15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2577,8 +2337,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_1ToFunction16<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_1<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<IO, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2598,8 +2356,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_2ToFunction16<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_2<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, IO, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2619,8 +2375,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_3ToFunction16<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_3<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, IO, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2640,8 +2394,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_4ToFunction16<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_4<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, IO, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2661,8 +2413,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_5ToFunction16<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_5<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, IO, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2682,8 +2432,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_6ToFunction16<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_6<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, IO, I7, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2703,8 +2451,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_7ToFunction16<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_7<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, IO, I8, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2724,8 +2470,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_8ToFunction16<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_8<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, IO, I9, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2745,8 +2489,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_9ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_9<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, IO, I10, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2766,8 +2508,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_10ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_10<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, I9, IO, I11, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2787,8 +2527,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_11ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14, I15, I16> implements Function<Inplaces.Arity16_11<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, IO, I12, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2808,8 +2546,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_12ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14, I15, I16> implements Function<Inplaces.Arity16_12<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, IO, I13, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2829,8 +2565,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_13ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14, I15, I16> implements Function<Inplaces.Arity16_13<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, IO, I14, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2850,8 +2584,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_14ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO, I15, I16> implements Function<Inplaces.Arity16_14<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO, I15, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, IO, I15, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2871,8 +2603,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_15ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO, I16> implements Function<Inplaces.Arity16_15<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO, I16>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, IO, I16, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)
@@ -2892,8 +2622,6 @@ public class InplacesToFunctions<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I
 	}
 
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	static class Inplace16_16ToFunction16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO> implements Function<Inplaces.Arity16_16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO>, Functions.Arity16<I1, I2, I3, I4, I5, I6, I7, I8, I9, I10, I11, I12, I13, I14, I15, IO, IO>> {
 		
 		@OpDependency(name = "create", adaptable = false)

@@ -89,8 +89,6 @@ public class ComputersToFunctionsAndLift {
 
 #foreach($arity in [1..$maxArity])
 	@Plugin(type = Op.class, name = "adapt", priority = Priority.LOW)
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	public static class Computer${arity}ToFunction${arity}AndLiftViaSource$generics.call($arity)
 			implements Function<$computerArity.call($arity)$generics.call($arity), $functionArity.call($arity)$iterableGenerics.call($arity)> {
 

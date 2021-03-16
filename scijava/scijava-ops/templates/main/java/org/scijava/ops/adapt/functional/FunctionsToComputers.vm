@@ -56,8 +56,6 @@ public class FunctionsToComputers {
 
 #foreach($arity in [0..$maxArity])
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	public static class Function${arity}ToComputer${arity}$generics.call($arity) implements Function<$functionArity.call($arity)$generics.call($arity), $computerArity.call($arity)$generics.call($arity)> {
 
 		@OpDependency(name = "copy", adaptable = false)

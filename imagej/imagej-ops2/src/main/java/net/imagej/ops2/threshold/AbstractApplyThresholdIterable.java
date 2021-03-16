@@ -41,8 +41,6 @@ import org.scijava.struct.ItemIO;
  * @author Curtis Rueden
  * @author Christian Dietz (University of Konstanz)
  */
-@Parameter(key = "input")
-@Parameter(key = "output")
 public abstract class AbstractApplyThresholdIterable<T> implements
 	Computers.Arity1<Iterable<T>, Iterable<BitType>>
 {
@@ -50,6 +48,12 @@ public abstract class AbstractApplyThresholdIterable<T> implements
 	@OpDependency(name = "threshold.apply")
 	private Computers.Arity2<Iterable<T>, T, Iterable<BitType>> applyThresholdOp;
 
+	/**
+	 * TODO
+	 *
+	 * @param input
+	 * @param output
+	 */
 	@Override
 	public void compute(final Iterable<T> input,
 		final Iterable<BitType> output)

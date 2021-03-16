@@ -95,11 +95,6 @@ import org.scijava.struct.ItemIO;
  * @author Simon Schmid (University of Konstanz)
  */
 @Plugin(type = Op.class, name = "image.watershed")
-@Parameter(key = "input")
-@Parameter(key = "useEightConnectivity")
-@Parameter(key = "drawWatersheds")
-@Parameter(key = "mask")
-@Parameter(key = "outputLabeling")
 public class Watershed<T extends RealType<T>, B extends BooleanType<B>> implements
 		Computers.Arity4<RandomAccessibleInterval<T>, Boolean, Boolean, RandomAccessibleInterval<B>, ImgLabeling<Integer, IntType>> {
 
@@ -119,6 +114,15 @@ public class Watershed<T extends RealType<T>, B extends BooleanType<B>> implemen
 	private static final int MASK = -3;
 
 	@Override
+	/**
+	 * TODO
+	 *
+	 * @param input
+	 * @param useEightConnectivity
+	 * @param drawWatersheds
+	 * @param mask
+	 * @param outputLabeling
+	 */
 	public void compute(final RandomAccessibleInterval<T> in, final Boolean useEightConnectivity,
 			final Boolean drawWatersheds, final RandomAccessibleInterval<B> mask,
 			final ImgLabeling<Integer, IntType> out) {
@@ -387,10 +391,6 @@ public class Watershed<T extends RealType<T>, B extends BooleanType<B>> implemen
 }
 
 @Plugin(type = Op.class, name = "image.watershed")
-@Parameter(key = "input")
-@Parameter(key = "useEightConnectivity")
-@Parameter(key = "drawWatersheds")
-@Parameter(key = "outputLabeling")
 class WatershedMaskless<T extends RealType<T>, B extends BooleanType<B>> implements
 		Computers.Arity3<RandomAccessibleInterval<T>, Boolean, Boolean, ImgLabeling<Integer, IntType>> {
 	
@@ -398,6 +398,14 @@ class WatershedMaskless<T extends RealType<T>, B extends BooleanType<B>> impleme
 	private Computers.Arity4<RandomAccessibleInterval<T>, Boolean, Boolean, RandomAccessibleInterval<B>, ImgLabeling<Integer, IntType>> watershedOp;
 
 	@Override
+	/**
+	 * TODO
+	 *
+	 * @param input
+	 * @param useEightConnectivity
+	 * @param drawWatersheds
+	 * @param outputLabeling
+	 */
 	public void compute(RandomAccessibleInterval<T> in, Boolean useEightConnectivity, Boolean drawWatersheds,
 			ImgLabeling<Integer, IntType> outputLabeling) {
 		watershedOp.compute(in, useEightConnectivity, drawWatersheds, null, outputLabeling);
@@ -406,11 +414,6 @@ class WatershedMaskless<T extends RealType<T>, B extends BooleanType<B>> impleme
 }
 
 @Plugin(type = Op.class, name = "image.watershed")
-@Parameter(key = "input")
-@Parameter(key = "useEightConnectivity")
-@Parameter(key = "drawWatersheds")
-@Parameter(key = "mask")
-@Parameter(key = "outputLabeling")
 class WatershedFunction<T extends RealType<T>, B extends BooleanType<B>>
 		implements Functions.Arity4<RandomAccessibleInterval<T>, Boolean, Boolean, RandomAccessibleInterval<B>, ImgLabeling<Integer, IntType>> {
 
@@ -420,6 +423,15 @@ class WatershedFunction<T extends RealType<T>, B extends BooleanType<B>>
 	private BiFunction<Dimensions, IntType, ImgLabeling<Integer, IntType>> labelingCreator;
 
 	@Override
+	/**
+	 * TODO
+	 *
+	 * @param input
+	 * @param useEightConnectivity
+	 * @param drawWatersheds
+	 * @param mask
+	 * @param outputLabeling
+	 */
 	public ImgLabeling<Integer, IntType> apply(RandomAccessibleInterval<T> in, Boolean useEightConnectivity,
 			Boolean drawWatersheds, RandomAccessibleInterval<B> mask) {
 		ImgLabeling<Integer, IntType> outputLabeling = labelingCreator.apply(in, new IntType());
@@ -429,10 +441,6 @@ class WatershedFunction<T extends RealType<T>, B extends BooleanType<B>>
 }
 
 @Plugin(type = Op.class, name = "image.watershed")
-@Parameter(key = "input")
-@Parameter(key = "useEightConnectivity")
-@Parameter(key = "drawWatersheds")
-@Parameter(key = "outputLabeling")
 class WatershedFunctionMaskless<T extends RealType<T>, B extends BooleanType<B>>
 		implements Functions.Arity3<RandomAccessibleInterval<T>, Boolean, Boolean, ImgLabeling<Integer, IntType>> {
 
@@ -442,6 +450,14 @@ class WatershedFunctionMaskless<T extends RealType<T>, B extends BooleanType<B>>
 	private BiFunction<Dimensions, IntType, ImgLabeling<Integer, IntType>> labelingCreator;
 
 	@Override
+	/**
+	 * TODO
+	 *
+	 * @param input
+	 * @param useEightConnectivity
+	 * @param drawWatersheds
+	 * @param outputLabeling
+	 */
 	public ImgLabeling<Integer, IntType> apply(RandomAccessibleInterval<T> in, Boolean useEightConnectivity,
 			Boolean drawWatersheds) {
 		ImgLabeling<Integer, IntType> outputLabeling = labelingCreator.apply(in, new IntType());

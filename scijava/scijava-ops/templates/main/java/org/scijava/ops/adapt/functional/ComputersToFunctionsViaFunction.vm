@@ -55,8 +55,6 @@ public class ComputersToFunctionsViaFunction {
 
 #foreach($arity in [1..$maxArity])
 	@Plugin(type = Op.class, name = "adapt")
-	@Parameter(key = "fromOp")
-	@Parameter(key = "toOp")
 	public static class Computer${arity}ToFunction${arity}ViaFunction$generics.call($arity)
 			implements Function<$computerArity.call($arity)$generics.call($arity), $functionArity.call($arity)$generics.call($arity)> {
 

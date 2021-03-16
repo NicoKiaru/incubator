@@ -12,8 +12,6 @@ import org.scijava.struct.ItemIO;
 public class Mean {
 
 	@Plugin(type = Op.class, name = "stats.mean")
-	@Parameter(key = "iterable")
-	@Parameter(key = "mean")
 	public static class MeanFunction <N, O> implements Function<Iterable<N>, O>{
 
 		@OpDependency(name = "math.add")
@@ -26,6 +24,11 @@ public class Mean {
 		BiFunction<O, O, O> divFunc;
 
 		@Override
+		/**
+		 * TODO
+		 * 
+		 * @param iterable
+		 */
 		public O apply(Iterable<N> iterable) {
 			return divFunc.apply(sumFunc.apply(iterable), sizeFunc.apply(iterable));
 		}
