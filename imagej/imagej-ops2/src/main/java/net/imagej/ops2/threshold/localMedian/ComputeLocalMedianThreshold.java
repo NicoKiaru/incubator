@@ -48,10 +48,6 @@ import org.scijava.struct.ItemIO;
  * @author Stefan Helfrich (University of Konstanz)
  */
 @Plugin(type = Op.class, name = "threshold.localMedian")
-@Parameter(key = "inputNeighborhood")
-@Parameter(key = "inputCenterPixel")
-@Parameter(key = "c")
-@Parameter(key = "output")
 public class ComputeLocalMedianThreshold<T extends RealType<T>> implements
 	Computers.Arity3<Iterable<T>, T, Double, BitType>
 {
@@ -60,6 +56,14 @@ public class ComputeLocalMedianThreshold<T extends RealType<T>> implements
 	private Computers.Arity1<Iterable<T>, DoubleType> medianOp;
 
 	@Override
+	/**
+	 * TODO
+	 *
+	 * @param inputNeighborhood
+	 * @param inputCenterPixel
+	 * @param c
+	 * @param output
+	 */
 	public void compute(final Iterable<T> inputNeighborhood,
 		final T inputCenterPixel, final Double c, final BitType output)
 	{

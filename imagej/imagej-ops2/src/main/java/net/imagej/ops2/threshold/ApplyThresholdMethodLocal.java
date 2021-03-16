@@ -313,10 +313,6 @@ public final class ApplyThresholdMethodLocal {
 		}
 	}
 
-	@Parameter(key = "input")
-	@Parameter(key = "inputNeighborhoodShape")
-	@Parameter(key = "outOfBoundsFactory", required = false)
-	@Parameter(key = "output")
 	private abstract static class AbstractApplyLocalHistogramBasedThreshold<T extends RealType<T>>
 		implements
 		Computers.Arity3<RandomAccessibleInterval<T>, Shape, OutOfBoundsFactory<T, RandomAccessibleInterval<T>>, //
@@ -334,6 +330,14 @@ public final class ApplyThresholdMethodLocal {
 
 		private Computers.Arity2<Iterable<T>, T, BitType> thresholdOp;
 
+		/**
+		 * TODO
+		 *
+		 * @param input
+		 * @param inputNeighborhoodShape
+		 * @param outOfBoundsFactory (required = false)
+		 * @param output
+		 */
 		@Override
 		public void compute(final RandomAccessibleInterval<T> input,
 			final Shape inputNeighborhoodShape,

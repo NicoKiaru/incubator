@@ -56,14 +56,6 @@ import org.scijava.struct.ItemIO;
  * @param <C>
  */
 @Plugin(type = Op.class, name = "filter.convolve", priority = Priority.LOW)
-@Parameter(key = "input")
-@Parameter(key = "kernel")
-@Parameter(key = "fftInput")
-@Parameter(key = "fftKernel")
-@Parameter(key = "performInputFFT")
-@Parameter(key = "performKernelFFT")
-@Parameter(key = "executorService")
-@Parameter(key = "output")
 public class ConvolveFFTC<I extends RealType<I>, O extends RealType<O>, K extends RealType<K>, C extends ComplexType<C>>
 		implements Computers.Arity7<RandomAccessibleInterval<I>, RandomAccessibleInterval<K>, RandomAccessibleInterval<C>, RandomAccessibleInterval<C>, Boolean, Boolean, ExecutorService, RandomAccessibleInterval<O>> {
 
@@ -77,6 +69,18 @@ public class ConvolveFFTC<I extends RealType<I>, O extends RealType<O>, K extend
 	 * Call the linear filter that is set up to perform convolution
 	 */
 	@Override
+	/**
+	 * TODO
+	 *
+	 * @param input
+	 * @param kernel
+	 * @param fftInput
+	 * @param fftKernel
+	 * @param performInputFFT
+	 * @param performKernelFFT
+	 * @param executorService
+	 * @param output
+	 */
 	public void compute(RandomAccessibleInterval<I> in, RandomAccessibleInterval<K> kernel,
 			RandomAccessibleInterval<C> fftInput, RandomAccessibleInterval<C> fftKernel, Boolean performInputFFT,
 			Boolean performKernelFFT, ExecutorService es, RandomAccessibleInterval<O> out) {
@@ -85,12 +89,6 @@ public class ConvolveFFTC<I extends RealType<I>, O extends RealType<O>, K extend
 }
 
 @Plugin(type = Op.class, name = "filter.convolve", priority = Priority.LOW)
-@Parameter(key = "input")
-@Parameter(key = "kernel")
-@Parameter(key = "fftInput")
-@Parameter(key = "fftKernel")
-@Parameter(key = "executorService")
-@Parameter(key = "output")
 class ConvolveFFTCSimple<I extends RealType<I>, O extends RealType<O>, K extends RealType<K>, C extends ComplexType<C>>
 		implements
 		Computers.Arity5<RandomAccessibleInterval<I>, RandomAccessibleInterval<K>, RandomAccessibleInterval<C>, RandomAccessibleInterval<C>, ExecutorService, RandomAccessibleInterval<O>> {
@@ -99,6 +97,16 @@ class ConvolveFFTCSimple<I extends RealType<I>, O extends RealType<O>, K extends
 	private Computers.Arity7<RandomAccessibleInterval<I>, RandomAccessibleInterval<K>, RandomAccessibleInterval<C>, RandomAccessibleInterval<C>, Boolean, Boolean, ExecutorService, RandomAccessibleInterval<O>> convolveOp;
 
 	@Override
+	/**
+	 * TODO
+	 *
+	 * @param input
+	 * @param kernel
+	 * @param fftInput
+	 * @param fftKernel
+	 * @param executorService
+	 * @param output
+	 */
 	public void compute(RandomAccessibleInterval<I> in, RandomAccessibleInterval<K> kernel,
 			RandomAccessibleInterval<C> fftInput, RandomAccessibleInterval<C> fftKernel, ExecutorService es,
 			RandomAccessibleInterval<O> output) {
