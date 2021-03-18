@@ -60,7 +60,7 @@ public class HistogramCreate<T extends RealType<T>> implements BiFunction<Iterab
 	 * TODO
 	 *
 	 * @param iterable
-	@Parameter(key = "numBins", required = false)
+	 * @param numBins
 	 * @param histogram
 	 */
 	public Histogram1d<T> apply(final Iterable<T> input, Integer numBins) {

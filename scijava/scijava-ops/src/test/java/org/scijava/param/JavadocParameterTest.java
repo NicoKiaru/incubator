@@ -150,8 +150,9 @@ public class JavadocParameterTest extends AbstractTestEnvironment {
  * @author Gabriel Selzer
  */
 @Plugin(type = Op.class, name = "test.javadoc.class")
-@Parameter(key = "input")
-@Parameter(key = "output", itemIO = ItemIO.OUTPUT)
+ * @param input
+ * @param output
+ */
 class JavadocOp implements Function<Double, Double> {
 
 	/**

@@ -83,9 +83,9 @@ public class DefaultVoxelization3D
 	 * TODO
 	 *
 	 * @param input
-	@Parameter(key = "width", required = false)
-	@Parameter(key = "height", required = false)
-	@Parameter(key = "depth", required = false)
+	 * @param width
+	 * @param height
+	 * @param depth
 	 * @param voxelizedImage
 	 */
 	public RandomAccessibleInterval<BitType> apply(Mesh input, Integer width, Integer height, Integer depth) {

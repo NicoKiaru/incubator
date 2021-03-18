@@ -62,7 +62,7 @@ public class LocalContrastThreshold<T extends RealType<T>> implements
 	 *
 	 * @param input
 	 * @param inputNeighborhoodShape
-	@Parameter(key = "outOfBoundsFactory", required = false)
+	 * @param outOfBoundsFactory
 	 * @param output
 	 */
 	public void compute(final RandomAccessibleInterval<T> input,

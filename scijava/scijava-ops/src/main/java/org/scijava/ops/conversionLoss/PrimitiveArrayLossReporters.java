@@ -23,9 +23,10 @@ public class PrimitiveArrayLossReporters {
 }
 
 //@Plugin(type = Op.class, name = "lossReporter")
-//@Parameter(key = "fromNil")
-//@Parameter(key = "toNil")
-//@Parameter(key = "loss")
+// * @param fromNil
+// * @param toNil
+// * @param loss
+ */
 //public static class ArrayLossReporter<T extends Number, U extends Number> implements LossReporter<T[], U[]>{
 //
 //	@OpDependency(name = "lossReporter")

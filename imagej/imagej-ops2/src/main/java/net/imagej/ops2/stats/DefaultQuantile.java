@@ -65,7 +65,7 @@ implements Computers.Arity2<Iterable<I>, Double, O>
 	 * TODO
 	 *
 	 * @param iterableInput
-	@Parameter(key = "quantile", min = "0.0", max = "1.0")
+	 * @param quantile
 	 * @param output
 	 */
 	public void compute(final Iterable<I> input, final Double quantile,

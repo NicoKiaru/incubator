@@ -33,8 +33,8 @@ public class CooccurrenceMatrix<T extends RealType<T>>
 	 * TODO
 	 *
 	 * @param iterableInput
-	@Parameter(key = "nrGreyLevels", min = "0", max = "128", stepSize = "1", initializer = "32")
-	@Parameter(key = "distance", min = "0", max = "128", stepSize = "1", initializer = "1")
+	 * @param nrGreyLevels
+	 * @param distance
 	 * @param matrixOrientation
 	 * @param cooccurrenceMatrix
 	 */

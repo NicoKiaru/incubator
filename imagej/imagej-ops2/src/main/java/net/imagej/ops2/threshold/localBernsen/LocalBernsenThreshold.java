@@ -65,7 +65,7 @@ public class LocalBernsenThreshold<T extends RealType<T>> implements
 	 * @param inputNeighborhoodShape
 	 * @param contrastThreshold
 	 * @param halfMaxValue
-	@Parameter(key = "outOfBoundsFactory", required = false)
+	 * @param outOfBoundsFactory
 	 * @param output
 	 */
 	public void compute(final RandomAccessibleInterval<T> input,

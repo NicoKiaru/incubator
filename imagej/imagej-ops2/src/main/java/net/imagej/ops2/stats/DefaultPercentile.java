@@ -61,7 +61,7 @@ public class DefaultPercentile<I extends RealType<I>, O extends RealType<O>>
 	 * TODO
 	 *
 	 * @param iterableInput
-	@Parameter(key = "percent", min="0", max="100")
+	 * @param percent
 	 * @param percentile
 	 */
 	public void compute(final Iterable<I> input, final Double percent, final O output) {
