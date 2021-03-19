@@ -96,7 +96,6 @@ public class DefaultFrangi<T extends RealType<T>, U extends RealType<U>>
 		return ((val2 - val1) / distance);
 	}
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -105,6 +104,7 @@ public class DefaultFrangi<T extends RealType<T>, U extends RealType<U>>
 	 * @param scale size of vessels to search for
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<T> input, final double[] spacing, final Integer scale,
 			final RandomAccessibleInterval<U> output) {
 

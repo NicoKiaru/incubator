@@ -77,7 +77,6 @@ public class DefaultVoxelization3D
 	@OpDependency(name = "create.img")
 	private BiFunction<Dimensions, BitType, Img<BitType>> imgCreator;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -87,6 +86,7 @@ public class DefaultVoxelization3D
 	 * @param depth
 	 * @param voxelizedImage
 	 */
+	@Override
 	public RandomAccessibleInterval<BitType> apply(Mesh input, Integer width, Integer height, Integer depth) {
 		if (width == null)
 			width = 10;

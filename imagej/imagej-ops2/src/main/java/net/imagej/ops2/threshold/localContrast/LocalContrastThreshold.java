@@ -55,7 +55,6 @@ public class LocalContrastThreshold<T extends RealType<T>> implements
 	@OpDependency(name = "threshold.localContrast")
 	private Computers.Arity2<Iterable<T>, T, BitType> computeThresholdOp;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -64,6 +63,7 @@ public class LocalContrastThreshold<T extends RealType<T>> implements
 	 * @param outOfBoundsFactory
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<T> input,
 		final Shape inputNeighborhoodShape,
 		final OutOfBoundsFactory<T, RandomAccessibleInterval<T>> outOfBoundsFactory,

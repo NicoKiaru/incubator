@@ -56,7 +56,6 @@ import org.scijava.struct.ItemIO;
 public class DefaultMapNeighborhood<I, O> implements
 	Computers.Arity3<RandomAccessibleInterval<I>, Shape, Computers.Arity1<Iterable<I>, O>, IterableInterval<O>>
 {
-	@Override
 	/**
 	 * TODO
 	 *
@@ -65,6 +64,7 @@ public class DefaultMapNeighborhood<I, O> implements
 	 * @param op
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<I> in1, final Shape in2,
 		final Computers.Arity1<Iterable<I>, O> computer, final IterableInterval<O> out)
 	{
@@ -98,7 +98,6 @@ class MapNeighborhoodAllRAI<I, O> implements
 	Computers.Arity3<RandomAccessibleInterval<I>, Shape, Computers.Arity1<Iterable<I>, O>, RandomAccessibleInterval<O>>
 {
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -107,6 +106,7 @@ class MapNeighborhoodAllRAI<I, O> implements
 	 * @param op
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<I> in1, final Shape in2,
 		final Computers.Arity1<Iterable<I>, O> centerAwareOp,
 		final RandomAccessibleInterval<O> out)

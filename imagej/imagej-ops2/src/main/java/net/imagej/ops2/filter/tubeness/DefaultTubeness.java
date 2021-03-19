@@ -111,7 +111,6 @@ public class DefaultTubeness<T extends RealType<T>> implements
 	@OpDependency(name = "project")
 	private Computers.Arity3<RandomAccessibleInterval<DoubleType>, Computers.Arity1<Iterable<DoubleType>, DoubleType>, Integer, IterableInterval<DoubleType>> projector;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -121,6 +120,7 @@ public class DefaultTubeness<T extends RealType<T>> implements
 	 * @param calibration
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<T> input, ExecutorService es, final Double sigma,
 			final double[] calibration, final IterableInterval<DoubleType> tubeness) {
 		cancelReason = null;
@@ -264,7 +264,6 @@ class DefaultTubenessWithoutCalibration<T extends RealType<T>> implements
 	@OpDependency(name = "filter.tubeness")
 	Computers.Arity4<RandomAccessibleInterval<T>, ExecutorService, Double, double[], IterableInterval<DoubleType>> tubenessOp;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -273,6 +272,7 @@ class DefaultTubenessWithoutCalibration<T extends RealType<T>> implements
 	 * @param sigma
 	 * @param output
 	 */
+	@Override
 	public void compute(RandomAccessibleInterval<T> in1, ExecutorService in2, Double in3,
 			IterableInterval<DoubleType> out) {
 		tubenessOp.compute(in1, in2, in3, new double[] {}, out);

@@ -63,7 +63,6 @@ public class IFFTMethodsOpC<C extends ComplexType<C>, T extends RealType<T>>
 	/**
 	 * Compute an ND inverse FFT
 	 */
-	@Override
 	/**
 	 * TODO
 	 *
@@ -71,6 +70,7 @@ public class IFFTMethodsOpC<C extends ComplexType<C>, T extends RealType<T>>
 	 * @param executorService
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<C> input, final ExecutorService es,
 			final RandomAccessibleInterval<T> output) {
 		if (!conforms(input))

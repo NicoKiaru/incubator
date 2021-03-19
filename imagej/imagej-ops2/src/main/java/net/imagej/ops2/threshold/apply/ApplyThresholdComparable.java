@@ -48,7 +48,6 @@ public class ApplyThresholdComparable<T> implements
 	Computers.Arity2<Comparable<? super T>, T, BitType>
 {
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -56,6 +55,7 @@ public class ApplyThresholdComparable<T> implements
 	 * @param threshold
 	 * @param output
 	 */
+	@Override
 	public void compute(final Comparable<? super T> input, final T threshold,
 		final BitType output)
 	{

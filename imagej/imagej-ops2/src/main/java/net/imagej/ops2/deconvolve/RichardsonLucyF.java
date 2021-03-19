@@ -181,7 +181,6 @@ public class RichardsonLucyF<I extends RealType<I> & NativeType<I>, O extends Re
 		filter.compute(paddedInput, paddedKernel, output);
 	}
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -198,6 +197,7 @@ public class RichardsonLucyF<I extends RealType<I> & NativeType<I>, O extends Re
 	 * @param executorService
 	 * @return the output
 	 */
+	@Override
 	public RandomAccessibleInterval<O> apply(RandomAccessibleInterval<I> input, RandomAccessibleInterval<K> kernel,
 			long[] borderSize, OutOfBoundsFactory<I, RandomAccessibleInterval<I>> obfInput,
 			OutOfBoundsFactory<K, RandomAccessibleInterval<K>> obfKernel, O outType, C complexType,

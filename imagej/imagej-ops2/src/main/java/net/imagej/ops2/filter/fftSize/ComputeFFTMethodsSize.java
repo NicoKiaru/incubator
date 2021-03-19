@@ -45,7 +45,6 @@ import org.scijava.struct.ItemIO;
 @Plugin(type = Op.class, name = "filter.fftSize")
 public class ComputeFFTMethodsSize implements Functions.Arity3<Dimensions, Boolean, Boolean, long[][]> {
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -54,6 +53,7 @@ public class ComputeFFTMethodsSize implements Functions.Arity3<Dimensions, Boole
 	 * @param fast
 	 * @return the output
 	 */
+	@Override
 	public long[][] apply(Dimensions inputDimensions, Boolean forward, Boolean fast) {
 
 		long[][] size = new long[2][];

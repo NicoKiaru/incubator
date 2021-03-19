@@ -56,7 +56,6 @@ public class DefaultICM2<T extends RealType<T>> extends AbstractHaralickFeature<
 	@OpDependency(name = "features.haralick.entropy")
 	private Functions.Arity4<RandomAccessibleInterval<T>, Integer, Integer, MatrixOrientation, DoubleType> entropy;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -66,6 +65,7 @@ public class DefaultICM2<T extends RealType<T>> extends AbstractHaralickFeature<
 	 * @param matrixOrientation
 	 * @return the output
 	 */
+	@Override
 	public DoubleType apply(final RandomAccessibleInterval<T> input, final Integer numGreyLevels, final Integer distance,
 			final MatrixOrientation orientation) {
 		final double[][] matrix = getCooccurrenceMatrix(input, numGreyLevels, distance, orientation);

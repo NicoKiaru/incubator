@@ -91,7 +91,6 @@ public class ConvolveNaiveF<I extends RealType<I>, O extends RealType<O> & Nativ
 		return createOp.apply(input, outType.createVariable());
 	}
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -101,6 +100,7 @@ public class ConvolveNaiveF<I extends RealType<I>, O extends RealType<O> & Nativ
 	 * @param outType
 	 * @return the output
 	 */
+	@Override
 	public RandomAccessibleInterval<O> apply(final RandomAccessibleInterval<I> input,
 			final RandomAccessibleInterval<K> kernel, OutOfBoundsFactory<I, RandomAccessibleInterval<I>> obf,
 			final O outType) {
@@ -141,7 +141,6 @@ class SimpleConvolveNaiveF<I extends RealType<I>, O extends RealType<O> & Native
 	@OpDependency(name = "filter.convolve")
 	Functions.Arity4<RandomAccessibleInterval<I>, RandomAccessibleInterval<K>, OutOfBoundsFactory<I, RandomAccessibleInterval<I>>, O, RandomAccessibleInterval<O>> convolveOp;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -149,6 +148,7 @@ class SimpleConvolveNaiveF<I extends RealType<I>, O extends RealType<O> & Native
 	 * @param kernel
 	 * @return the output
 	 */
+	@Override
 	public RandomAccessibleInterval<O> apply(RandomAccessibleInterval<I> t, RandomAccessibleInterval<K> u) {
 		return convolveOp.apply(t, u, null, null);
 	}

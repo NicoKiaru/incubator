@@ -52,7 +52,6 @@ import org.scijava.struct.ItemIO;
 public class DefaultEval implements Functions.Arity3<String, Map<String, Object>, OpService, Object>
 {
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -61,6 +60,7 @@ public class DefaultEval implements Functions.Arity3<String, Map<String, Object>
 	 * @param opService
 	 * @return the output
 	 */
+	@Override
 	public Object apply(final String input, final Map<String, Object> vars, final OpService ops) {
 		OpEvaluator e = new OpEvaluator(ops);
 		if (vars != null) e.setAll(vars);

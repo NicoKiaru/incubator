@@ -49,7 +49,6 @@ import org.scijava.struct.ItemIO;
 public class ApplyThresholdComparator<T> implements Computers.Arity3<T, T, Comparator<? super T>, BitType>
 {
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -58,6 +57,7 @@ public class ApplyThresholdComparator<T> implements Computers.Arity3<T, T, Compa
 	 * @param comparator
 	 * @param output
 	 */
+	@Override
 	public void compute(T input1, T input2, Comparator<? super T> comparator, BitType out) {
 		out.set(comparator.compare(input1, input2) > 0);
 	}

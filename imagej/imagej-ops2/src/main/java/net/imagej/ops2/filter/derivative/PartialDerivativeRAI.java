@@ -168,7 +168,6 @@ public class PartialDerivativeRAI<T extends RealType<T>>
 
 	}
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -176,6 +175,7 @@ public class PartialDerivativeRAI<T extends RealType<T>>
 	 * @param dimension
 	 * @param output
 	 */
+	@Override
 	public void compute(RandomAccessibleInterval<T> input, final Integer dimension,
 			RandomAccessibleInterval<T> output) {
 		setupConvolves(input, dimension);

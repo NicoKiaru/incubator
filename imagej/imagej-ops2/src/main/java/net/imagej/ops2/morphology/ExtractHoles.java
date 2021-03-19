@@ -59,7 +59,6 @@ public class ExtractHoles<T extends BooleanType<T>> implements
 	@OpDependency(name = "morphology.fillHoles")
 	private Computers.Arity2<RandomAccessibleInterval<T>, Shape, RandomAccessibleInterval<T>> fillHolesComp;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -67,6 +66,7 @@ public class ExtractHoles<T extends BooleanType<T>> implements
 	 * @param structElement
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<T> input,
 		final Shape structElement, final RandomAccessibleInterval<T> output)
 	{
@@ -83,13 +83,13 @@ class SimpleExtractHolesComputer<T extends BooleanType<T>> implements
 	@OpDependency(name = "morphology.extractHoles")
 	private Computers.Arity2<RandomAccessibleInterval<T>, Shape, RandomAccessibleInterval<T>> extractOp;
 
-	@Override
 	/**
 	 * TODO
 	 *
 	 * @param input
 	 * @param output
 	 */
+	@Override
 	public void compute(RandomAccessibleInterval<T> in1, RandomAccessibleInterval<T> out) {
 		Shape defaultStructElement = new RectangleShape(1, false);
 		extractOp.compute(in1, defaultStructElement, out);

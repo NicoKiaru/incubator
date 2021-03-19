@@ -83,7 +83,6 @@ public class NormalizeIIComputer<I extends RealType<I>, O extends RealType<O>>
 		return result;
 	}
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -94,6 +93,7 @@ public class NormalizeIIComputer<I extends RealType<I>, O extends RealType<O>>
 	 * @param targetMax
 	 * @param output
 	 */
+	@Override
 	public void compute(final RandomAccessibleInterval<I> input, final I sourceMin, final I sourceMax, final O targetMin,
 			final O targetMax, final RandomAccessibleInterval<O> output) {
 		normalizer = new NormalizeRealTypeComputer<>();

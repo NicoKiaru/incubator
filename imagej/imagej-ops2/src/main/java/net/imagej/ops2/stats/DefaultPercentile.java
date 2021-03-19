@@ -55,7 +55,6 @@ public class DefaultPercentile<I extends RealType<I>, O extends RealType<O>>
 	@OpDependency(name = "stats.quantile")
 	private Computers.Arity2<Iterable<I>, Double, O> op;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -63,6 +62,7 @@ public class DefaultPercentile<I extends RealType<I>, O extends RealType<O>>
 	 * @param percent
 	 * @param percentile
 	 */
+	@Override
 	public void compute(final Iterable<I> input, final Double percent, final O output) {
 		op.compute(input, percent / 100, output);
 	}

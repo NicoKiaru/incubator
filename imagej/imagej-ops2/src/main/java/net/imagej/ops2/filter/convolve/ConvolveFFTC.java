@@ -67,7 +67,6 @@ public class ConvolveFFTC<I extends RealType<I>, O extends RealType<O>, K extend
 	/**
 	 * Call the linear filter that is set up to perform convolution
 	 */
-	@Override
 	/**
 	 * TODO
 	 *
@@ -80,6 +79,7 @@ public class ConvolveFFTC<I extends RealType<I>, O extends RealType<O>, K extend
 	 * @param executorService
 	 * @param output
 	 */
+	@Override
 	public void compute(RandomAccessibleInterval<I> in, RandomAccessibleInterval<K> kernel,
 			RandomAccessibleInterval<C> fftInput, RandomAccessibleInterval<C> fftKernel, Boolean performInputFFT,
 			Boolean performKernelFFT, ExecutorService es, RandomAccessibleInterval<O> out) {
@@ -95,7 +95,6 @@ class ConvolveFFTCSimple<I extends RealType<I>, O extends RealType<O>, K extends
 	@OpDependency(name = "filter.convolve")
 	private Computers.Arity7<RandomAccessibleInterval<I>, RandomAccessibleInterval<K>, RandomAccessibleInterval<C>, RandomAccessibleInterval<C>, Boolean, Boolean, ExecutorService, RandomAccessibleInterval<O>> convolveOp;
 
-	@Override
 	/**
 	 * TODO
 	 *
@@ -106,6 +105,7 @@ class ConvolveFFTCSimple<I extends RealType<I>, O extends RealType<O>, K extends
 	 * @param executorService
 	 * @param output
 	 */
+	@Override
 	public void compute(RandomAccessibleInterval<I> in, RandomAccessibleInterval<K> kernel,
 			RandomAccessibleInterval<C> fftInput, RandomAccessibleInterval<C> fftKernel, ExecutorService es,
 			RandomAccessibleInterval<O> output) {
