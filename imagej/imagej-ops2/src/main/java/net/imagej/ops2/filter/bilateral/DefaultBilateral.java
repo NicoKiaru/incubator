@@ -43,7 +43,6 @@ import net.imglib2.view.Views;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Performs a bilateral filter on an image.

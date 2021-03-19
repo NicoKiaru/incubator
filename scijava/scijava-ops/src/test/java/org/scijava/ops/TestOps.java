@@ -7,7 +7,6 @@ import java.util.function.Function;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * This class contains various ops used in various tests used to check framework

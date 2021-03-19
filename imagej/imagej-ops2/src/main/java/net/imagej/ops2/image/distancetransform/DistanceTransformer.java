@@ -38,7 +38,6 @@ import net.imglib2.view.Views;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Passes an input image of any dimension off to the correct Distance Transform

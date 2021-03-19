@@ -50,7 +50,6 @@ import org.scijava.ops.OpDependency;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 @Plugin(type = Op.class, name = "threshold.localPhansalkar",
 	priority = Priority.LOW)

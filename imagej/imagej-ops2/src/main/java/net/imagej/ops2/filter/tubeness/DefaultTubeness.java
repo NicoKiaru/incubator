@@ -55,7 +55,6 @@ import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * The Tubeness filter: enhance filamentous structures of a specified thickness.

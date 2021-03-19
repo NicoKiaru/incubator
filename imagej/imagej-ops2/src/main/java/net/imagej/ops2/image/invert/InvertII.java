@@ -42,7 +42,6 @@
 //import org.scijava.ops.function.Computers;
 //import org.scijava.ops.function.Computers;
 //import org.scijava.plugin.Plugin;
-//import org.scijava.struct.ItemIO;
 //
 ///**
 // * @author Martin Horn (University of Konstanz)

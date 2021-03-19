@@ -52,7 +52,6 @@ import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Functions;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 import org.scijava.util.IntArray;
 
 /**

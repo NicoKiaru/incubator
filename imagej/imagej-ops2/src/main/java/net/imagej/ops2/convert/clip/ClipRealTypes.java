@@ -34,7 +34,6 @@ import net.imglib2.type.numeric.RealType;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Copies the value of one {@link RealType} to another, and clips values which

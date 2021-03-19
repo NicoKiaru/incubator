@@ -44,7 +44,6 @@ import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Low-level difference of Gaussians (DoG) implementation which leans on other

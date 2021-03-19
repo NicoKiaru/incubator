@@ -35,7 +35,6 @@ import net.imglib2.type.numeric.RealType;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * {@link Op} to calculate the {@code stats.size} of an {@link Interval}.

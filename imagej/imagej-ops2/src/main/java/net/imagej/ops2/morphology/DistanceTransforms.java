@@ -20,7 +20,6 @@ import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 @Plugin(type = OpCollection.class)
 public class DistanceTransforms<T extends RealType<T>, U extends RealType<U>> {

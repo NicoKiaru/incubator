@@ -46,7 +46,6 @@ import org.scijava.ops.function.Functions;
 import org.scijava.ops.function.Functions;
 import org.scijava.ops.function.Functions;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Function that uses FFTMethods to perform a forward FFT

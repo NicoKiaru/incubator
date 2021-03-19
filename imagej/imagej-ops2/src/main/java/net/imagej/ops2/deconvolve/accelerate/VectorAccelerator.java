@@ -50,7 +50,6 @@ import org.scijava.ops.function.Functions;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.util.Adapt;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Vector Accelerator implements acceleration scheme described in Acceleration

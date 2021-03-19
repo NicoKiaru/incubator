@@ -39,7 +39,6 @@ import net.imglib2.view.Views;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * An Op which calculates the correction needed to approximate the contribution of the image to the

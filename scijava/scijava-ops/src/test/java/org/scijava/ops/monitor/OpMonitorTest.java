@@ -14,7 +14,6 @@ import org.scijava.ops.AbstractTestEnvironment;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Functions;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 import org.scijava.types.Nil;
 
 /**

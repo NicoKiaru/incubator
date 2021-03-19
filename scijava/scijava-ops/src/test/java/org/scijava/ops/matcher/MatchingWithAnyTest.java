@@ -15,7 +15,6 @@ import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Producer;
 import org.scijava.param.Mutable;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 import org.scijava.types.Any;
 import org.scijava.types.TypeExtractor;
 

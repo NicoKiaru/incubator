@@ -57,7 +57,6 @@ import org.scijava.ops.function.Functions;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Richardson Lucy with total variation function op that operates on (@link

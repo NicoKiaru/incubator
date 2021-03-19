@@ -44,7 +44,6 @@ import org.scijava.ops.core.builder.OpBuilder;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Producer;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Ensures that higher-priority adapt Ops are used over lower-priority adapt

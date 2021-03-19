@@ -19,7 +19,6 @@ import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Computers;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 @Plugin(type = OpCollection.class)
 public class FloodFills<T extends Type<T>, U extends Type<U>> {

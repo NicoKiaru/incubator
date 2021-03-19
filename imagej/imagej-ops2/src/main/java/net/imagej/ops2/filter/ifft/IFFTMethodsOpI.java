@@ -38,7 +38,6 @@ import net.imglib2.type.numeric.ComplexType;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Inverse FFT inplace operator -- complex to complex only, output size must

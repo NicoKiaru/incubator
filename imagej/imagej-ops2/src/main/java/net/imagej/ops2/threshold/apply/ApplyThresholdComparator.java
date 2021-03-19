@@ -36,7 +36,6 @@ import net.imglib2.type.logic.BitType;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * Applies a threshold value (the second input) to the given object using the

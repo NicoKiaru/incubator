@@ -35,7 +35,6 @@ import net.imglib2.type.Type;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * An Op that works the same way as the <code>?:</code> operator. It sets the

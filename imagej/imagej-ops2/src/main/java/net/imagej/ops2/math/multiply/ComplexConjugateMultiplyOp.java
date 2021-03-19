@@ -35,7 +35,6 @@ import org.scijava.Priority;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Computers;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 @Plugin(type = Op.class, name = "math.complexConjugateMultiply", priority = Priority.LOW)
 public class ComplexConjugateMultiplyOp<T extends ComplexType<T>> implements Computers.Arity2<T, T, T> {

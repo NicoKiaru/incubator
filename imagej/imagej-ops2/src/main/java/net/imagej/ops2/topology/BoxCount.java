@@ -49,7 +49,6 @@ import net.imglib2.view.Views;
 import org.scijava.ops.core.Op;
 import org.scijava.ops.function.Functions;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 /**
  * An N-dimensional box counting that can be used to estimate the fractal

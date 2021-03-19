@@ -14,7 +14,6 @@ import org.scijava.ops.core.builder.OpBuilder;
 import org.scijava.ops.function.Functions;
 import org.scijava.types.Nil;
 import org.scijava.plugin.Plugin;
-import org.scijava.struct.ItemIO;
 
 @Plugin(type = OpCollection.class)
 public class OpsAsParametersTest extends AbstractTestEnvironment {
