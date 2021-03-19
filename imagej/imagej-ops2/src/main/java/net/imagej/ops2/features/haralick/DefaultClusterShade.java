@@ -64,7 +64,7 @@ public class DefaultClusterShade<T extends RealType<T>> extends AbstractHaralick
 	 * @param numGreyLevels
 	 * @param distance
 	 * @param matrixOrientation
-	 * @param output
+	 * @return the output
 	 */
 	public DoubleType apply(final RandomAccessibleInterval<T> input, final Integer numGreyLevels, final Integer distance,
 			final MatrixOrientation orientation) {

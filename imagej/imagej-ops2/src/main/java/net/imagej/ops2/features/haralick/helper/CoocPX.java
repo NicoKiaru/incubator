@@ -49,7 +49,7 @@ public class CoocPX implements Function<double[][], double[]> {
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public double[] apply(double[][] input) {
 		final int nrGrayLevels = input.length;

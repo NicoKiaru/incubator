@@ -62,7 +62,7 @@ public class PaddingIntervalOrigin<T extends ComplexType<T>, I extends RandomAcc
 	 *
 	 * @param input
 	 * @param interval
-	 * @param output
+	 * @return the output
 	 */
 	public O apply(final I input, final Interval centeredInterval) {
 

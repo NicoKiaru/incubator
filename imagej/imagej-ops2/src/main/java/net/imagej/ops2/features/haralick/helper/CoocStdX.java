@@ -58,7 +58,7 @@ public class CoocStdX implements Function<double[][], DoubleType> {
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public DoubleType apply(double[][] input) {
 

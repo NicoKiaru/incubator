@@ -69,7 +69,7 @@ public class DefaultLBP2D<I extends RealType<I>>
 	 * @param input
 	 * @param distance
 	 * @param histogramSize
-	 * @param output
+	 * @return the output
 	 */
 	public ArrayList<LongType> apply(RandomAccessibleInterval<I> input, Integer distance, Integer histogramSize) {
 		ArrayList<LongType> output = new ArrayList<>();

@@ -60,7 +60,7 @@ public class CreateOutputFFTMethods<T> implements Functions.Arity3<Dimensions, T
 	 * @param Dimensions
 	 * @param outType
 	 * @param fast
-	 * @param output
+	 * @return the output
 	 */
 	public Img<T> apply(Dimensions paddedDimensions, T outType, Boolean fast) {
 
@@ -83,7 +83,7 @@ class CreateOutputFFTMethodsSimple<T> implements BiFunction<Dimensions, T, Img<T
 	 *
 	 * @param Dimensions
 	 * @param outType
-	 * @param output
+	 * @return the output
 	 */
 	public Img<T> apply(Dimensions paddedDimensions, T outType) {
 		return create.apply(paddedDimensions, outType, true);

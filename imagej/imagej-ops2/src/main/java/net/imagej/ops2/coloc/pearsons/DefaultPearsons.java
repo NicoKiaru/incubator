@@ -57,7 +57,7 @@ public class DefaultPearsons<T extends RealType<T>, U extends RealType<U>> imple
 	 *
 	 * @param image1
 	 * @param image2
-	 * @param output
+	 * @return the output
 	 */
 	public Double apply(final Iterable<T> image1,
 		final Iterable<U> image2)

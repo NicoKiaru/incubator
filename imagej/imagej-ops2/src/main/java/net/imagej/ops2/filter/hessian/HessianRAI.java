@@ -69,7 +69,7 @@ public class HessianRAI<T extends RealType<T>>
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public CompositeIntervalView<T, RealComposite<T>> apply(RandomAccessibleInterval<T> input) {
 		List<RandomAccessibleInterval<T>> derivatives = new ArrayList<>();

@@ -434,7 +434,7 @@ class WatershedSeededMasklessFunction<T extends RealType<T>, B extends BooleanTy
 	 * @param seeds
 	 * @param useEightConnectivity
 	 * @param drawWatersheds
-	 * @param outputLabeling
+	 * @return the outputLabeling
 	 */
 	public ImgLabeling<Integer, IntType> apply(RandomAccessibleInterval<T> in, ImgLabeling<Integer, IntType> seeds,
 			Boolean useEightConnectivity, Boolean drawWatersheds) {
@@ -462,7 +462,7 @@ class WatershedSeededFunction<T extends RealType<T>, B extends BooleanType<B>> i
 	 * @param useEightConnectivity
 	 * @param drawWatersheds
 	 * @param mask
-	 * @param outputLabeling
+	 * @return the outputLabeling
 	 */
 	public ImgLabeling<Integer, IntType> apply(RandomAccessibleInterval<T> in, ImgLabeling<Integer, IntType> seeds,
 			Boolean useEightConnectivity, Boolean drawWatersheds, RandomAccessibleInterval<B> mask) {

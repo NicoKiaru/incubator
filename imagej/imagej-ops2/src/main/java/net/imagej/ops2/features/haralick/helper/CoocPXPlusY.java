@@ -49,7 +49,7 @@ public class CoocPXPlusY implements Function<double[][], double[]> {
 	 * TODO
 	 *
 	 * @param matrix
-	 * @param output
+	 * @return the output
 	 */
 	public double[] apply(double[][] matrix) {
 

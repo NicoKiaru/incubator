@@ -100,7 +100,7 @@ public class ConvolveNaiveF<I extends RealType<I>, O extends RealType<O> & Nativ
 	 * @param kernel
 	 * @param outOfBoundsFactory
 	 * @param outType
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<O> apply(final RandomAccessibleInterval<I> input,
 			final RandomAccessibleInterval<K> kernel, OutOfBoundsFactory<I, RandomAccessibleInterval<I>> obf,
@@ -148,7 +148,7 @@ class SimpleConvolveNaiveF<I extends RealType<I>, O extends RealType<O> & Native
 	 *
 	 * @param input
 	 * @param kernel
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<O> apply(RandomAccessibleInterval<I> t, RandomAccessibleInterval<K> u) {
 		return convolveOp.apply(t, u, null, null);

@@ -60,7 +60,7 @@ public class DefaultEval implements Functions.Arity3<String, Map<String, Object>
 	 * @param input
 	 * @param vars
 	 * @param opService
-	 * @param output
+	 * @return the output
 	 */
 	public Object apply(final String input, final Map<String, Object> vars, final OpService ops) {
 		OpEvaluator e = new OpEvaluator(ops);

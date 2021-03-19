@@ -53,7 +53,7 @@ public class ComputeFFTMethodsSize implements Functions.Arity3<Dimensions, Boole
 	 * @param dimensions
 	 * @param forward
 	 * @param fast
-	 * @param output
+	 * @return the output
 	 */
 	public long[][] apply(Dimensions inputDimensions, Boolean forward, Boolean fast) {
 

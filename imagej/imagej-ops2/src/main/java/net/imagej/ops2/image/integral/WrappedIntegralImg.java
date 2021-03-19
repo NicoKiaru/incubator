@@ -62,7 +62,7 @@ public class WrappedIntegralImg<I extends RealType<I>>
 		 * TODO
 		 *
 		 * @param input
-		 * @param output
+		 * @return the output
 		 */
 	public RandomAccessibleInterval<DoubleType> apply(
 		final RandomAccessibleInterval<I> input)

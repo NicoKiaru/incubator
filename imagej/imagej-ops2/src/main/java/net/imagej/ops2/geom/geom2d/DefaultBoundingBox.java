@@ -57,7 +57,7 @@ public class DefaultBoundingBox implements Function<Polygon2D, Polygon2D> {
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public Polygon2D apply(final Polygon2D input) {
 		double min_x = Double.POSITIVE_INFINITY;

@@ -85,7 +85,7 @@ public class NonCirculantFirstGuess<I extends RealType<I>, O extends RealType<O>
 	 * @param input
 	 * @param outType
 	 * @param k
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<O> apply(RandomAccessibleInterval<I> in, final O outType, final Dimensions k) {
 

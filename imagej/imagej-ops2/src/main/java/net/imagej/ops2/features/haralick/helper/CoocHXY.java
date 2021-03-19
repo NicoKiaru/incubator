@@ -59,7 +59,7 @@ public class CoocHXY implements Function<double[][], double[]> {
 	 * TODO
 	 *
 	 * @param matix
-	 * @param output
+	 * @return the output
 	 */
 	public double[] apply(double[][] matrix) {
 		double hx = 0.0d;

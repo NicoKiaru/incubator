@@ -72,7 +72,7 @@ public class NormalizeIIFunction<I extends RealType<I>, O extends RealType<O>>
 	 * @param sourceMax
 	 * @param targetMin
 	 * @param targetMax
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<O> apply(
 		final RandomAccessibleInterval<I> input, final I sourceMin,

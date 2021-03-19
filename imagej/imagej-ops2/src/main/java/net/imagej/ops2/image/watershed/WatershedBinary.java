@@ -188,7 +188,7 @@ class WatershedBinaryFunction<T extends BooleanType<T>, B extends BooleanType<B>
 	 * @param sigma
 	 * @param mask
 	 * @param executorService
-	 * @param outputLabeling
+	 * @return the outputLabeling
 	 */
 	public ImgLabeling<Integer, IntType> apply(RandomAccessibleInterval<T> in, Boolean useEightConnectivity,
 			Boolean drawWatersheds, double[] sigma, RandomAccessibleInterval<B> mask, ExecutorService es) {
@@ -216,7 +216,7 @@ class WatershedBinaryFunctionMaskless<T extends BooleanType<T>, B extends Boolea
 	 * @param drawWatersheds
 	 * @param sigma
 	 * @param executorService
-	 * @param outputLabeling
+	 * @return the outputLabeling
 	 */
 	public ImgLabeling<Integer, IntType> apply(RandomAccessibleInterval<T> in, Boolean useEightConnectivity,
 			Boolean drawWatersheds, double[] sigma, ExecutorService es) {

@@ -97,7 +97,7 @@ public class ConvolveFFTF<I extends RealType<I> & NativeType<I>, O extends RealT
 	 * @param outType
 	 * @param fftType
 	 * @param executorService
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<O> apply(final RandomAccessibleInterval<I> input,
 			final RandomAccessibleInterval<K> kernel, final long[] borderSize,
@@ -185,7 +185,7 @@ class SimpleConvolveFFTF<I extends RealType<I> & NativeType<I>, O extends RealTy
 	 * @param input
 	 * @param kernel
 	 * @param executorService
-	 * @param output
+	 * @return the output
 	 */
 		public RandomAccessibleInterval<FloatType> apply(RandomAccessibleInterval<I> t, RandomAccessibleInterval<K> u, ExecutorService es) {
 			OutOfBoundsFactory<I, RandomAccessibleInterval<I>> obfInput = new OutOfBoundsConstantValueFactory<>(Util

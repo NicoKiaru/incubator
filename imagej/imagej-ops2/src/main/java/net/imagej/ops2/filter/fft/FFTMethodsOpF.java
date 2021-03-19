@@ -87,7 +87,7 @@ public class FFTMethodsOpF<T extends RealType<T>, C extends ComplexType<C>> impl
 	 * @param fast whether to perform a fast FFT; default true
 	 * @param fftType the complex type of the output
 	 * @param executorService
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<C> apply(final RandomAccessibleInterval<T> input, final long[] borderSize,
 			final Boolean fast, final C fftType, final ExecutorService es) {

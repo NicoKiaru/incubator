@@ -72,7 +72,7 @@ public class PadShiftKernel<T extends ComplexType<T>, I extends RandomAccessible
 	 *
 	 * @param kernel
 	 * @param paddedDimensions
-	 * @param output
+	 * @return the output
 	 */
 	public O apply(final I kernel, final Dimensions paddedDimensions) {
 

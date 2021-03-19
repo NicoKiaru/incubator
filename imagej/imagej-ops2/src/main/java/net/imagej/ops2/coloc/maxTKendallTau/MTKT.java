@@ -89,7 +89,7 @@ public class MTKT<T extends RealType<T>, U extends RealType<U>>
 	 * @param image1
 	 * @param image2
 	 * @param seed
-	 * @param output
+	 * @return the output
 	 */
 	public Double apply(final RandomAccessibleInterval<T> image1, final RandomAccessibleInterval<U> image2, final Long seed) {
 		// check image sizes
@@ -267,7 +267,7 @@ class MTKTSimple<T extends RealType<T>, U extends RealType<U>>
 	 *
 	 * @param image1
 	 * @param image2
-	 * @param output
+	 * @return the output
 	 */
 	public Double apply(RandomAccessibleInterval<T> image1, RandomAccessibleInterval<U> image2) {
 		return colocOp.apply(image1, image2, seed);

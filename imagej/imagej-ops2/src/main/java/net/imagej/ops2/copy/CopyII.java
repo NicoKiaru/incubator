@@ -85,7 +85,7 @@ class CopyIIFunction<T> implements Function<IterableInterval<T>, IterableInterva
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public IterableInterval<T> apply(IterableInterval<T> input) {
 		IterableInterval<T> output = imgCreator.apply(input, input.firstElement());

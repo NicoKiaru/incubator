@@ -56,7 +56,7 @@ public class DefaultComputeFFTSize implements BiFunction<Dimensions, Boolean, lo
 	 *
 	 * @param dimensions
 	 * @param powerOfTwo
-	 * @param outputSizes
+	 * @return the outputSizes
 	 */
 	public long[][] apply(Dimensions inputDimensions, Boolean powerOfTwo) {
 

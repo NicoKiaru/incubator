@@ -95,7 +95,7 @@ implements Functions.Arity8<RandomAccessibleInterval<I>, RandomAccessibleInterva
 	 * @param outType
 	 * @param fftType
 	 * @param executorService
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<O> apply(final RandomAccessibleInterval<I> input,
 			final RandomAccessibleInterval<K> kernel, final long[] borderSize,

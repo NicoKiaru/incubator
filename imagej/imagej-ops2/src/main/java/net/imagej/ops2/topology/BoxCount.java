@@ -340,7 +340,7 @@ class DefaultBoxCount<B extends BooleanType<B>> implements
 	 * @param minSize
 	 * @param scaling
 	 * @param gridMoves
-	 * @param output
+	 * @return the output
 	 */
 	public List<ValuePair<DoubleType, DoubleType>> apply(
 		RandomAccessibleInterval<B> input, Long maxSize, Long minSize,

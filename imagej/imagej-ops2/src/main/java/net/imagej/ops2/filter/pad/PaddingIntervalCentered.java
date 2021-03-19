@@ -64,7 +64,7 @@ public class PaddingIntervalCentered<T extends ComplexType<T>, I extends RandomA
 	 *
 	 * @param input
 	 * @param paddedDimensions
-	 * @param output
+	 * @return the output
 	 */
 	public O apply(final I input, final Dimensions paddedDimensions) {
 

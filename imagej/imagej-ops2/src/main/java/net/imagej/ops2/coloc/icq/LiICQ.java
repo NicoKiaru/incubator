@@ -69,7 +69,7 @@ public class LiICQ<T extends RealType<T>, U extends RealType<U>, V extends RealT
 	 * @param image2
 	 * @param mean1
 	 * @param mean2
-	 * @param output
+	 * @return the output
 	 */
 	public Double apply(final Iterable<T> image1, final Iterable<U> image2, final DoubleType mean1, final DoubleType mean2) {
 
@@ -136,7 +136,7 @@ class LiICQSimple<T extends RealType<T>, U extends RealType<U>, V extends RealTy
 	 *
 	 * @param image1
 	 * @param image2
-	 * @param output
+	 * @return the output
 	 */
 	public Double apply(Iterable<T> image1, Iterable<U> image2) {
 		return colocOp.apply(image1, image2, null, null);

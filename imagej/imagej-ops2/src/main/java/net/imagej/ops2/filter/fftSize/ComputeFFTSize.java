@@ -59,7 +59,7 @@ public class ComputeFFTSize implements Functions.Arity5<Dimensions, long[], long
 	 * @param fftSize
 	 * @param forward
 	 * @param fast
-	 * @param outputs
+	 * @return the outputs
 	 */
 	public Pair<long[], long[]> apply(Dimensions inputDimensions, long[] paddedSize, long[] fftSize, Boolean forward,
 			Boolean fast) {

@@ -78,7 +78,7 @@ public class DefaultMarchingCubes<T extends BooleanType<T>>
 	 * @param input
 	 * @param isolevel
 	 * @param interpolatorClass
-	 * @param output
+	 * @return the output
 	 */
 	public Mesh apply(final RandomAccessibleInterval<T> input, Double isolevel, VertexInterpolator interpolatorClass) {
 
@@ -572,7 +572,7 @@ class SimpleMarchingCubes<T extends BooleanType<T>>
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public Mesh apply(RandomAccessibleInterval<T> t) {
 		return marchingOp.apply(t, null, null);

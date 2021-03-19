@@ -67,7 +67,7 @@ public class NormalizeIILazyFunction<I extends RealType<I>>
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<I> apply(RandomAccessibleInterval<I> img) {
 		RandomAccessibleInterval<I> output = createFunc.apply(img);

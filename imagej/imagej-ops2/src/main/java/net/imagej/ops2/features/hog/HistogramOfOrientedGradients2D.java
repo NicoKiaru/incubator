@@ -295,7 +295,7 @@ class HistogramOfOrientedGradients2DFunction<T extends RealType<T>> implements
 	 * @param numOrientations
 	 * @param spanOfNeighborhood
 	 * @param executorService
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<T> apply(final RandomAccessibleInterval<T> input, final Integer numOrientations,
 			final Integer spanOfNeighborhood, final ExecutorService es) {

@@ -197,7 +197,7 @@ public class RichardsonLucyF<I extends RealType<I> & NativeType<I>, O extends Re
 	 * @param nonCirculant indicates whether to use non-circulant edge handling
 	 * @param accelerate indicates whether or not to use acceleration
 	 * @param executorService
-	 * @param output
+	 * @return the output
 	 */
 	public RandomAccessibleInterval<O> apply(RandomAccessibleInterval<I> input, RandomAccessibleInterval<K> kernel,
 			long[] borderSize, OutOfBoundsFactory<I, RandomAccessibleInterval<I>> obfInput,

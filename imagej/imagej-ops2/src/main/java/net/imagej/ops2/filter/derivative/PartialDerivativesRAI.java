@@ -70,7 +70,7 @@ public class PartialDerivativesRAI<T extends RealType<T>>
 	 * TODO
 	 *
 	 * @param input
-	 * @param outputComposite
+	 * @return the outputComposite
 	 */
 	public CompositeIntervalView<T, RealComposite<T>> apply(RandomAccessibleInterval<T> input) {
 		List<RandomAccessibleInterval<T>> derivatives = new ArrayList<>();

@@ -85,7 +85,7 @@ public class KendallTauBRank<T extends RealType<T>, U extends RealType<U>>
 	 *
 	 * @param image1
 	 * @param image2
-	 * @param output
+	 * @return the output
 	 */
 	public Double apply(Iterable<T> image1, Iterable<U> image2) {
 		if (!ColocUtil.sameIterationOrder(image1, image2))

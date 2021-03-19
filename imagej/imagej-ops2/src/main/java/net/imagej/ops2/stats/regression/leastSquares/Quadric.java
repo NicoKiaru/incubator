@@ -74,7 +74,7 @@ public class Quadric implements
 	 * TODO
 	 *
 	 * @param vectorCollection
-	 * @param outputMatrix
+	 * @return the outputMatrix
 	 */
 	public Matrix4d apply(final Collection<Vector3d> points) {
 		if (points.size() < MIN_DATA)

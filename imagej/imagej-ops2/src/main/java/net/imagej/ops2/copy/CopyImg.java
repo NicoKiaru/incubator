@@ -82,7 +82,7 @@ class CopyImgFunction<T extends NativeType<T>> implements Function<Img<T>, Img<T
 	 * TODO
 	 *
 	 * @param input
-	 * @param output
+	 * @return the output
 	 */
 	public Img<T> apply(Img<T> input) {
 		Img<T> output = createFunc.apply(input);
