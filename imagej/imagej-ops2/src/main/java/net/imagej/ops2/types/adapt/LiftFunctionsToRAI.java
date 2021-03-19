@@ -16,7 +16,6 @@ import org.scijava.Priority;
 import org.scijava.ops.OpField;
 import org.scijava.ops.core.OpCollection;
 import org.scijava.ops.function.Functions;
-import org.scijava.param.Parameter;
 import org.scijava.plugin.Plugin;
 
 /**
