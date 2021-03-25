@@ -6,6 +6,7 @@ module org.scijava.ops {
 	exports org.scijava.ops.core; // contains OpCollection, Op interfaces
 	exports org.scijava.ops.core.builder; // contains OpBuilder classes
 	exports org.scijava.ops.matcher;
+	exports org.scijava.ops.math;
 	exports org.scijava.ops.simplify;
 	exports org.scijava.ops.conversionLoss;
 	// TODO: move OpWrapper to its own package (org.scijava.ops.wrap??)

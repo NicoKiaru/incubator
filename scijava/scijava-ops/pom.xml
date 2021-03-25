@@ -114,8 +114,8 @@
                     </execution>
                 </executions>
             </plugin>
-        </plugins>
-    </build>
+		</plugins>
+	</build>
 	<dependencies>
 		<!-- SciJava dependencies -->
 		<dependency>
