@@ -97,16 +97,15 @@ public class OpMethodInfo implements OpInfo {
 		this.method = method;
 		// we cannot simplify this op iff it has the Unsimplifiable annotation.
 		simplifiable = method.getAnnotation(Unsimplifiable.class) == null; 
+		// determine the functional interface this Op should implement
+		final OpMethod methodAnnotation = method.getAnnotation(OpMethod.class);
 		try {
+			opType = ParameterStructs.getOpMethodType(methodAnnotation.type(),
+				method);
 			struct = ParameterStructs.structOf(method.getDeclaringClass(), method);
-			final OpMethod methodAnnotation = method.getAnnotation(OpMethod.class);
-			try {
-				opType = ParameterStructs.getOpMethodType(methodAnnotation.type(),
-					method);
-			}
-			catch (IllegalArgumentException e) {
-				opType = Types.parameterizeRaw(methodAnnotation.type());
-			}
+		}
+		catch (IllegalArgumentException e) {
+			problems.add(new ValidityProblem(e));
 		}
 		catch (final ValidityException e) {
 			problems.addAll(e.problems());
