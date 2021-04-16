@@ -41,7 +41,8 @@ import java.util.function.Function;
 import org.scijava.functions.Computers;
 import org.scijava.ops.OpEnvironment;
 import org.scijava.ops.function.ComputerUtils;
-import org.scijava.ops.function.Functions;
+import org.scijava.ops.function.FunctionUtils;
+import org.scijava.functions.Functions;
 import org.scijava.ops.function.Inplaces;
 import org.scijava.ops.function.Producer;
 import org.scijava.types.Nil;
@@ -267,7 +268,7 @@ public class OpBuilder {
 		}
 
 		public $functionArity.call($arity)$generics.call($arity) function() {
-			return Functions.match(env, opName, $inputTypesWithOutput.call($arity));
+			return FunctionUtils.match(env, opName, $inputTypesWithOutput.call($arity));
 		}
 
 		public Computers.Arity${arity}$generics.call($arity) computer() {
@@ -312,7 +313,7 @@ public class OpBuilder {
 		}
 
 		public $functionArity.call($arity)$genericsWildcardFunction.call($arity) function() {
-			return Functions.match(env, opName, $inputTypes.call($arity), Nil.of(Object.class));
+			return FunctionUtils.match(env, opName, $inputTypes.call($arity), Nil.of(Object.class));
 		}
 
 #foreach($a in [1..$arity])
@@ -348,7 +349,7 @@ public class OpBuilder {
 		}
 
 		public $functionArity.call($arity)$generics.call($arity) function() {
-			return Functions.match(env, opName, $inputTypesFromArgs.call($arity), outType);
+			return FunctionUtils.match(env, opName, $inputTypesFromArgs.call($arity), outType);
 		}
 	
 		public Computers.Arity${arity}$generics.call($arity) computer() {
@@ -395,7 +396,7 @@ public class OpBuilder {
 		}
 
 		public $functionArity.call($arity)$genericsWildcardFunction.call($arity) function() {
-			return Functions.match(env, opName, $inputTypesFromArgs.call($arity), Nil.of(Object.class));
+			return FunctionUtils.match(env, opName, $inputTypesFromArgs.call($arity), Nil.of(Object.class));
 		}
 
 #foreach($a in [1..$arity])
