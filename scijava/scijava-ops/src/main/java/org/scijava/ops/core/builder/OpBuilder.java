@@ -45,7 +45,7 @@ import org.scijava.ops.OpEnvironment;
 import org.scijava.ops.function.ComputerUtils;
 import org.scijava.ops.function.FunctionUtils;
 import org.scijava.ops.function.InplaceUtils;
-import org.scijava.ops.function.Producer;
+import org.scijava.functions.Producer;
 import org.scijava.types.Nil;
 import org.scijava.types.Types;
 
