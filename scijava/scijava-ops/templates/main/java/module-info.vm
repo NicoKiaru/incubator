@@ -19,9 +19,11 @@ module org.scijava.ops {
 	exports org.scijava.struct;
 	exports org.scijava.param;
 
-	opens org.scijava.ops to org.scijava, therapi.runtime.javadoc;
-	opens org.scijava.ops.impl to org.scijava, therapi.runtime.javadoc;
-	opens org.scijava.param to therapi.runtime.javadoc;
+#foreach($package in $modulePackages.call("src/main/java/org/scijava/ops"))
+	opens $package to therapi.runtime.javadoc;
+#end
+	opens org.scijava.ops to org.scijava;
+	opens org.scijava.ops.impl to org.scijava;
 
   // FIXME: This is a file name and is thus unstable
   requires geantyref;
