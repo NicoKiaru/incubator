@@ -235,6 +235,35 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<annotationProcessors>
+						<annotationProcessor>com.github.therapi.runtimejavadoc.internal.JavadocAnnotationProcessor</annotationProcessor>
+						<annotationProcessor>org.scijava.annotations.AnnotationProcessor</annotationProcessor>
+					</annotationProcessors>
+					<debug>true</debug>
+					<optimize>true</optimize>
+					<compilerArguments>
+						<AaddGeneratedAnnotation>true</AaddGeneratedAnnotation>
+						<Adebug>true</Adebug>
+					</compilerArguments>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>com.github.therapi</groupId>
+							<artifactId>therapi-runtime-javadoc-scribe</artifactId>
+							<version>0.12.0</version>
+						</path>
+						<path>
+							<groupId>org.scijava</groupId>
+							<artifactId>scijava-common</artifactId>
+							<version>2.83.3</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
